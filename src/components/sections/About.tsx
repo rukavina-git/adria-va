@@ -1,3 +1,4 @@
+import Image from "next/image";
 import SectionLabel from "@/components/ui/SectionLabel";
 import type { Content } from "@/lib/content";
 
@@ -19,19 +20,15 @@ export default function About({ about }: { about: Content["about"] }) {
             </p>
           ))}
         </div>
-        <div className="flex aspect-[4/5] items-center justify-center rounded-xl border border-brand/10 bg-brand-light">
-          <svg
-            viewBox="0 0 24 24"
-            className="h-12 w-12 text-brand opacity-25"
-            fill="none"
-            stroke="currentColor"
-            strokeWidth={1}
-            strokeLinecap="round"
-            strokeLinejoin="round"
-          >
-            <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2" />
-            <circle cx="12" cy="7" r="4" />
-          </svg>
+        <div className="relative aspect-[4/5] overflow-hidden rounded-xl border border-brand/10 bg-brand-light">
+          {/* TODO: replace with real photo */}
+          <Image
+            src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=600&q=80"
+            alt="Adria VA"
+            fill
+            className="object-cover object-top"
+            sizes="(max-width: 768px) 100vw, 480px"
+          />
         </div>
       </div>
     </section>
