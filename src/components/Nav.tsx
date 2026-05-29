@@ -20,7 +20,7 @@ export default function Nav({ nav }: { nav: Content["nav"] }) {
             <li key={link.href}>
               <a
                 href={link.href}
-                className="text-sm tracking-[0.02em] text-white transition hover:text-accent"
+                className="text-sm tracking-[0.02em] text-white transition-colors duration-200 hover:text-accent"
               >
                 {link.label}
               </a>

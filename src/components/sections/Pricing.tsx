@@ -135,8 +135,8 @@ export default function Pricing({ pricing }: { pricing: Content["pricing"] }) {
     pricing.tabs.find((tab) => tab.id === activeId) ?? pricing.tabs[0];
 
   const gridClass =
-    activeTab.cards.length >= 4
-      ? "max-w-[1100px] sm:grid-cols-2 lg:grid-cols-4"
+    activeTab.id === "kn"
+      ? "max-w-[860px] sm:grid-cols-2"
       : "max-w-[860px] md:grid-cols-3";
 
   return (

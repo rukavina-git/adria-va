@@ -15,23 +15,34 @@
   "services": {
     "label": "What I offer",
     "title": "Services tailored to your business",
+    "learnMore": "Learn more →",
+    "viewPricing": "View pricing →",
     "items": [
       {
         "icon": "social",
         "title": "Social media",
-        "description": "Content creation, post scheduling, profile management, advertising on Facebook and Instagram, analytics and reporting."
+        "description": "Content creation, post scheduling, profile management, advertising on Facebook and Instagram, analytics and reporting.",
+        "details": "We cover all aspects of your social media presence — from strategy and content creation to profile management and advertising. We create graphics and video content (Reels, Stories, photo posts), schedule posts in advance, respond to comments and reviews, and track results through detailed monthly reports. We work on Facebook, Instagram, TikTok and Google Ads."
       },
       {
         "icon": "ledger",
         "title": "Bookkeeping",
-        "description": "Basic bookkeeping support, issuing and tracking invoices, expense records, VAT filings and preparing documentation for your accountant."
+        "description": "Basic bookkeeping support, issuing and tracking invoices, expense records, VAT filings and preparing documentation for your accountant.",
+        "details": "We provide basic bookkeeping support tailored to the needs of small business owners and sole traders. We record incoming and outgoing invoices, track payments and collections, calculate VAT and submit VAT returns, maintain employee records, process payroll and submit JOPPD forms. We prepare everything neatly and on time so your accountant or the Tax Administration always has everything they need."
       },
       {
         "icon": "admin",
         "title": "Administration",
-        "description": "Email and calendar management, document preparation, registration of foreign workers, travel planning and coordination of business processes."
+        "description": "Email and calendar management, document preparation, registration of foreign workers, travel planning and coordination of business processes.",
+        "details": "We take over all administrative tasks that take up your time — email and calendar management, document archiving and organisation, data entry and processing, preparing and sending invoices, responding to customer enquiries. We also specialise in registering and deregistering foreign workers (HZMO, HZZO, MUP) and coordinating booked groups for hospitality businesses."
       }
     ]
+  },
+  "discountBanner": {
+    "label": "SPECIAL OFFER",
+    "title": "Get a discount for long-term collaboration and combining services",
+    "subtitle": "Contact us for a customised offer tailored to your business.",
+    "cta": "Request a quote"
   },
   "about": {
     "label": "About",
@@ -56,7 +67,6 @@
             "price": 350,
             "unit": "/ month",
             "badge": null,
-            "description": "Suitable for smaller businesses looking to grow their social media presence",
             "features": [
               "Profile management on 1–2 networks",
               "8–12 posts per month (reels, video, photo, story)",
@@ -73,8 +83,7 @@
             "subtitle": "Growth",
             "price": 450,
             "unit": "/ month",
-            "badge": "Most popular",
-            "description": "Ideal for growing businesses that want to strengthen their online presence",
+            "badge": null,
             "features": [
               "Profile management on 2–3 networks",
               "16 posts per month (reels, video, photo, story)",
@@ -93,7 +102,6 @@
             "price": 850,
             "unit": "/ month",
             "badge": null,
-            "description": "For brands seeking a comprehensive, full-service approach",
             "features": [
               "Profile management on 3–5 networks",
               "25–30 posts per month (reels, video, photo, story)",
@@ -200,6 +208,7 @@
     }
   },
   "footer": {
-    "copy": "© 2026 Adria VA — Virtual assistance business · Split"
+    "copy": "© 2026 Adria VA — Virtual assistance business · Split",
+    "legal": "Obrt Adria VA – za virtualnu asistenciju · Vlasnik: Ana Marija Rukavina · Česvinica · Obveznik nije u sustavu PDV-a temeljem čl. 90 st. 1 i st. 2 Zakona o PDV-u (NN br. 73/13)"
   }
 }

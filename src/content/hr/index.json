@@ -15,23 +15,34 @@
   "services": {
     "label": "Što nudim",
     "title": "Usluge prilagođene vašem poslovanju",
+    "learnMore": "Saznajte više →",
+    "viewPricing": "Pogledajte cijene →",
     "items": [
       {
         "icon": "social",
         "title": "Društvene mreže",
-        "description": "Kreiranje sadržaja, planiranje objava, upravljanje profilima, oglašavanje na Facebook i Instagram platformama, analitika i izvještavanje."
+        "description": "Kreiranje sadržaja, planiranje objava, upravljanje profilima, oglašavanje na Facebook i Instagram platformama, analitika i izvještavanje.",
+        "details": "Pokrivamo sve aspekte vaše prisutnosti na društvenim mrežama — od strategije i kreiranja sadržaja do upravljanja profilima i oglašavanja. Izrađujemo grafike i video sadržaj (Reels, Stories, foto-objave), planiramo objave unaprijed, odgovaramo na komentare i recenzije te pratimo rezultate kroz detaljne mjesečne izvještaje. Radimo na platformama Facebook, Instagram, TikTok i Google Ads."
       },
       {
         "icon": "ledger",
         "title": "Knjigovodstvo",
-        "description": "Osnovna knjigovodstvena podrška, izdavanje i praćenje računa, evidencija troškova, PDV prijave i priprema dokumentacije za knjigovođu."
+        "description": "Osnovna knjigovodstvena podrška, izdavanje i praćenje računa, evidencija troškova, PDV prijave i priprema dokumentacije za knjigovođu.",
+        "details": "Pružamo osnovnu knjigovodstvenu podršku prilagođenu potrebama malih poduzetnika i obrta. Knjižimo ulazne i izlazne račune, pratimo plaćanja i naplate, obračunavamo PDV i podnosimo PDV prijave, vodimo evidenciju zaposlenika, obračunavamo plaće i podnosimo JOPPD obrasce. Sve pripremamo uredno i na vrijeme kako bi vaš knjigovođa ili Porezna uprava uvijek imali sve što trebaju."
       },
       {
         "icon": "admin",
         "title": "Administracija",
-        "description": "Upravljanje e-mailom i kalendarom, priprema dokumentacije, prijave stranih radnika, organizacija putovanja i koordinacija poslovnih procesa."
+        "description": "Upravljanje e-mailom i kalendarom, priprema dokumentacije, prijave stranih radnika, organizacija putovanja i koordinacija poslovnih procesa.",
+        "details": "Preuzimamo sve administrativne zadatke koji vam oduzimaju vrijeme — upravljanje e-mailovima i kalendarom, arhiviranje i organizacija dokumenata, unos i obrada podataka, priprema i slanje računa, odgovaranje na upite kupaca. Specijalizirali smo se i za prijave i odjave stranih radnika (HZMO, HZZO, MUP) te koordinaciju najavljenih grupa za ugostiteljske objekte."
       }
     ]
+  },
+  "discountBanner": {
+    "label": "POSEBNA PONUDA",
+    "title": "Ostvarite popust za dugoročnu suradnju i kombiniranje usluga",
+    "subtitle": "Javite nam se za prilagođenu ponudu prilagođenu vašem poslovanju.",
+    "cta": "Zatražite ponudu"
   },
   "about": {
     "label": "O meni",
@@ -56,7 +67,6 @@
             "price": 350,
             "unit": "/ mjesečno",
             "badge": null,
-            "description": "Prikladno za manja poduzeća koja žele povećati prisutnost na društvenim mrežama",
             "features": [
               "Upravljanje profilima na 1–2 mreže",
               "8–12 objava mjesečno (reels, video, foto, story)",
@@ -73,8 +83,7 @@
             "subtitle": "Rast",
             "price": 450,
             "unit": "/ mjesečno",
-            "badge": "Najpopularnije",
-            "description": "Idealno za poduzeća u fazi rasta koja žele osnažiti svoju online prisutnost",
+            "badge": null,
             "features": [
               "Upravljanje profilima na 2–3 mreže",
               "16 objava mjesečno (reels, video, foto, story)",
@@ -93,7 +102,6 @@
             "price": 850,
             "unit": "/ mjesečno",
             "badge": null,
-            "description": "Namijenjeno brendovima koji traže sveobuhvatan pristup i potpunu uslugu",
             "features": [
               "Upravljanje profilima na 3–5 mreža",
               "25–30 objava mjesečno (reels, video, foto, story)",
@@ -200,6 +208,7 @@
     }
   },
   "footer": {
-    "copy": "© 2026 Adria VA — Obrt za virtualnu asistenciju · Split"
+    "copy": "© 2026 Adria VA — Obrt za virtualnu asistenciju · Split",
+    "legal": "Obrt Adria VA – za virtualnu asistenciju · Vlasnik: Ana Marija Rukavina · Česvinica · Obveznik nije u sustavu PDV-a temeljem čl. 90 st. 1 i st. 2 Zakona o PDV-u (NN br. 73/13)"
   }
 }

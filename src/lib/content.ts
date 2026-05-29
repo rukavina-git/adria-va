@@ -6,6 +6,7 @@ export interface ServiceItem {
   icon: string;
   title: string;
   description: string;
+  details?: string;
 }
 
 export interface PricingCard {
@@ -48,7 +49,8 @@ export interface Content {
     ctaPrimary: string;
     ctaSecondary: string;
   };
-  services: { label: string; title: string; items: ServiceItem[] };
+  services: { label: string; title: string; learnMore: string; viewPricing: string; items: ServiceItem[] };
+  discountBanner: { label: string; title: string; subtitle: string; cta: string };
   about: { label: string; title: string; paragraphs: string[] };
   pricing: { label: string; title: string; tabs: PricingTab[] };
   contact: {
@@ -61,7 +63,7 @@ export interface Content {
     email: string;
     form: ContactForm;
   };
-  footer: { copy: string };
+  footer: { copy: string; legal: string };
 }
 
 const content: Record<Locale, Content> = {

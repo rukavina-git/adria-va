@@ -1,6 +1,9 @@
-import type { ReactNode } from "react";
+"use client";
+
+import { useState, type ReactNode } from "react";
 import SectionLabel from "@/components/ui/SectionLabel";
-import type { Content } from "@/lib/content";
+import ServiceDetailModal from "@/components/ui/ServiceDetailModal";
+import type { Content, ServiceItem } from "@/lib/content";
 
 const icons: Record<string, ReactNode> = {
   social: (
@@ -32,13 +35,15 @@ export default function Services({
 }: {
   services: Content["services"];
 }) {
+  const [activeService, setActiveService] = useState<ServiceItem | null>(null);
+
   return (
     <section id="usluge" className="bg-white px-6 py-16 md:px-12 md:py-18">
       <SectionLabel>{services.label}</SectionLabel>
       <h2 className="mb-10 max-w-[420px] text-[28px] font-normal leading-[1.2] tracking-[-0.01em] text-ink">
         {services.title}
       </h2>
-      <div className="max-w-[960px] divide-y divide-line overflow-hidden rounded-xl border border-line">
+      <div className="divide-y divide-line overflow-hidden rounded-xl border border-line">
         {services.items.map((item) => (
           <div
             key={item.title}
@@ -57,17 +62,37 @@ export default function Services({
                 {icons[item.icon]}
               </svg>
             </div>
-            <div>
+            <div className="flex-1">
               <p className="mb-1 text-[15px] font-medium text-ink">
                 {item.title}
               </p>
               <p className="text-[13px] leading-[1.6] text-muted">
                 {item.description}
               </p>
+              {item.details && (
+                <div className="mt-3 flex justify-end">
+                  <button
+                    type="button"
+                    onClick={() => setActiveService(item)}
+                    className="text-[12px] font-medium text-brand transition-colors duration-200 hover:text-brand-dark"
+                  >
+                    {services.learnMore}
+                  </button>
+                </div>
+              )}
             </div>
           </div>
         ))}
       </div>
+
+      {activeService && (
+        <ServiceDetailModal
+          title={activeService.title}
+          details={activeService.details ?? ""}
+          viewPricingCta={services.viewPricing}
+          onClose={() => setActiveService(null)}
+        />
+      )}
     </section>
   );
 }

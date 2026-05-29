@@ -16,7 +16,7 @@ export default function Hero({ hero }: { hero: Content["hero"] }) {
         }}
       />
       <div className="relative z-10 flex flex-col items-center gap-4">
-        <h1 className="max-w-[600px] text-5xl font-light leading-[1.15] tracking-[-0.01em] text-white md:text-6xl">
+        <h1 className="max-w-2xl mx-auto text-5xl font-light leading-[1.15] tracking-[-0.01em] text-white md:text-6xl">
           {hero.titleLead}
           <em className="font-light text-accent">{hero.titleAccent}</em>
         </h1>
