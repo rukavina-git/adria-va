@@ -1,0 +1,205 @@
+{
+  "nav": {
+    "services": "Usluge",
+    "about": "O meni",
+    "pricing": "Cjenik",
+    "contact": "Kontakt"
+  },
+  "hero": {
+    "titleLead": "Vaše poslovanje raste kad ne morate ",
+    "titleAccent": "sve raditi sami.",
+    "subtitle": "Delegirajte administrativne, računovodstvene i marketing zadatke. Vi se fokusirajte na ono što zaista donosi rezultate.",
+    "ctaPrimary": "Zatražite ponudu",
+    "ctaSecondary": "Pogledajte cjenik"
+  },
+  "services": {
+    "label": "Što nudim",
+    "title": "Usluge prilagođene vašem poslovanju",
+    "items": [
+      {
+        "icon": "social",
+        "title": "Društvene mreže",
+        "description": "Kreiranje sadržaja, planiranje objava, upravljanje profilima, oglašavanje na Facebook i Instagram platformama, analitika i izvještavanje."
+      },
+      {
+        "icon": "ledger",
+        "title": "Knjigovodstvo",
+        "description": "Osnovna knjigovodstvena podrška, izdavanje i praćenje računa, evidencija troškova, PDV prijave i priprema dokumentacije za knjigovođu."
+      },
+      {
+        "icon": "admin",
+        "title": "Administracija",
+        "description": "Upravljanje e-mailom i kalendarom, priprema dokumentacije, prijave stranih radnika, organizacija putovanja i koordinacija poslovnih procesa."
+      }
+    ]
+  },
+  "about": {
+    "label": "O meni",
+    "title": "Zašto baš Adria VA?",
+    "paragraphs": [
+      "Predana, ambiciozna i uvijek spremna učiti — to su kvalitete koje prenosim i u vaše poslovanje. Obrt Adria VA nastao je iz ljubavi prema poslu i želje da pomognem poduzetnicima koji žele rasti, ali im nedostaje vremena za sve administrativne zadatke.",
+      "Prilagođavam se potrebama svakog klijenta jer mi je individualan pristup jako bitan. Umjesto jednog generičnog rješenja, dobivate podršku koja se uklapa u vaš ritam rada.",
+      "Korištenjem virtualnog asistenta možete delegirati zadatke koji vam oduzimaju vrijeme i fokusirati se na rast svoje tvrtke."
+    ]
+  },
+  "pricing": {
+    "label": "Paketi",
+    "title": "Cjenik usluga",
+    "tabs": [
+      {
+        "id": "dm",
+        "label": "Društvene mreže",
+        "cards": [
+          {
+            "name": "Osnovni paket",
+            "subtitle": "Start Up",
+            "price": 350,
+            "unit": "/ mjesečno",
+            "badge": null,
+            "description": "Prikladno za manja poduzeća koja žele povećati prisutnost na društvenim mrežama",
+            "features": [
+              "Upravljanje profilima na 1–2 mreže",
+              "8–12 objava mjesečno (reels, video, foto, story)",
+              "Interakcija s publikom",
+              "Planiranje objava unaprijed",
+              "1 fotografiranje mjesečno",
+              "Odgovaranje na do 10 recenzija (TripAdvisor, Google Ads)",
+              "Upravljanje plaćenim oglasima"
+            ],
+            "cta": "Odaberite paket"
+          },
+          {
+            "name": "Standardni paket",
+            "subtitle": "Rast",
+            "price": 450,
+            "unit": "/ mjesečno",
+            "badge": "Najpopularnije",
+            "description": "Idealno za poduzeća u fazi rasta koja žele osnažiti svoju online prisutnost",
+            "features": [
+              "Upravljanje profilima na 2–3 mreže",
+              "16 objava mjesečno (reels, video, foto, story)",
+              "Interakcija s publikom",
+              "2 fotografiranja mjesečno",
+              "Planiranje objava unaprijed",
+              "Odgovaranje na do 25 recenzija (TripAdvisor, Google Ads)",
+              "Detaljni mjesečni izvještaji",
+              "Upravljanje plaćenim oglasima"
+            ],
+            "cta": "Odaberite paket"
+          },
+          {
+            "name": "Premium paket",
+            "subtitle": "Proširenje",
+            "price": 850,
+            "unit": "/ mjesečno",
+            "badge": null,
+            "description": "Namijenjeno brendovima koji traže sveobuhvatan pristup i potpunu uslugu",
+            "features": [
+              "Upravljanje profilima na 3–5 mreža",
+              "25–30 objava mjesečno (reels, video, foto, story)",
+              "Interakcija s publikom",
+              "4 fotografiranja mjesečno",
+              "Planiranje objava unaprijed",
+              "Neograničeno odgovaranje na recenzije",
+              "Potpuno upravljanje kampanjama i optimiziranje",
+              "Detaljni mjesečni izvještaj"
+            ],
+            "cta": "Odaberite paket"
+          }
+        ]
+      },
+      {
+        "id": "kn",
+        "label": "Knjigovodstvo i administracija",
+        "cards": [
+          {
+            "name": "Administracija",
+            "price": 15,
+            "unit": "/ sat",
+            "badge": null,
+            "features": [
+              "Upravljanje e-mailovima i kalendarima",
+              "Organizacija i arhiviranje dokumenata",
+              "Unos i obrada podataka",
+              "Ispunjavanje obrazaca i priprema dokumenata",
+              "Izrada izvještaja i analiza podataka",
+              "Priprema i slanje računa",
+              "Unos primki za evidenciju skladišta",
+              "Odgovaranje na upite kupaca putem e-maila",
+              "Slanje podsjetnika klijentima",
+              "Dogovaranje i koordinacija najavljenih grupa"
+            ],
+            "cta": "Odaberite paket"
+          },
+          {
+            "name": "Knjigovodstvo",
+            "price": 15,
+            "unit": "/ sat",
+            "badge": null,
+            "features": [
+              "Knjiženje ulaznih i izlaznih računa",
+              "Evidencija plaćanja i naplate",
+              "Obračun PDV-a i podnošenje PDV prijava",
+              "Kontrola i usklađivanje salda kupaca i dobavljača",
+              "Knjiženje bankovnih izvoda",
+              "Obračun plaća i vođenje evidencije zaposlenika",
+              "Priprema i podnošenje JOPPD obrazaca",
+              "Evidencija bolovanja i godišnjih odmora",
+              "Obračun doprinosa i poreza na dohodak"
+            ],
+            "cta": "Odaberite paket"
+          },
+          {
+            "name": "Prijava / odjava radnika",
+            "price": 30,
+            "unit": "/ radniku",
+            "badge": null,
+            "features": [
+              "Prijava ili odjava zaposlenika na HZMO, HZZO i MUP",
+              "Priprema i podnošenje zahtjeva za radnu dozvolu",
+              "Asistencija u komunikaciji s nadležnim institucijama",
+              "Za hitne prijave/odjave unutar 24h — dodatna naknada po dogovoru"
+            ],
+            "cta": "Odaberite paket"
+          },
+          {
+            "name": "Prilagođeni paketi",
+            "price": null,
+            "priceLabel": "Po dogovoru",
+            "unit": null,
+            "badge": null,
+            "features": [
+              "Namijenjena za ostvarenje dugoročne suradnje",
+              "Prilagođena cijena po dogovoru"
+            ],
+            "cta": "Odaberite paket"
+          }
+        ]
+      }
+    ]
+  },
+  "contact": {
+    "label": "Kontakt",
+    "titleLead": "Virtualni asistent ",
+    "titleAccent": "za budućnost",
+    "infoHeading": "Javite mi se s povjerenjem",
+    "infoText": "Ako imate pitanja ili želite saznati više o tome kako mogu pomoći vašem poslovanju, slobodno me kontaktirajte. Odgovaram u roku od 24 sata.",
+    "phone": "091 9342948",
+    "email": "info.adriava@gmail.com",
+    "form": {
+      "nameLabel": "Ime i prezime",
+      "namePlaceholder": "Ana Horvat",
+      "emailLabel": "E-mail adresa",
+      "emailPlaceholder": "ana@tvrtka.hr",
+      "messageLabel": "Poruka",
+      "messagePlaceholder": "Opišite što vam je potrebno...",
+      "submit": "Pošaljite poruku →",
+      "sending": "Slanje...",
+      "success": "✓ Poruka je uspješno poslana. Odgovorit ćemo u roku od 24 sata.",
+      "error": "Došlo je do pogreške pri slanju. Pokušajte ponovno ili nam pišite izravno."
+    }
+  },
+  "footer": {
+    "copy": "© 2026 Adria VA — Obrt za virtualnu asistenciju · Split"
+  }
+}

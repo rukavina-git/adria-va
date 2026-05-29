@@ -1,0 +1,205 @@
+{
+  "nav": {
+    "services": "Services",
+    "about": "About",
+    "pricing": "Pricing",
+    "contact": "Contact"
+  },
+  "hero": {
+    "titleLead": "Your business grows when you don't have to ",
+    "titleAccent": "do it all yourself.",
+    "subtitle": "Delegate your administrative, accounting and marketing tasks. You stay focused on what truly drives results.",
+    "ctaPrimary": "Request a quote",
+    "ctaSecondary": "View pricing"
+  },
+  "services": {
+    "label": "What I offer",
+    "title": "Services tailored to your business",
+    "items": [
+      {
+        "icon": "social",
+        "title": "Social media",
+        "description": "Content creation, post scheduling, profile management, advertising on Facebook and Instagram, analytics and reporting."
+      },
+      {
+        "icon": "ledger",
+        "title": "Bookkeeping",
+        "description": "Basic bookkeeping support, issuing and tracking invoices, expense records, VAT filings and preparing documentation for your accountant."
+      },
+      {
+        "icon": "admin",
+        "title": "Administration",
+        "description": "Email and calendar management, document preparation, registration of foreign workers, travel planning and coordination of business processes."
+      }
+    ]
+  },
+  "about": {
+    "label": "About",
+    "title": "Why Adria VA?",
+    "paragraphs": [
+      "Dedicated, ambitious and always eager to learn — these are the qualities I bring to your business too. Adria VA was born out of a love for work and a wish to help entrepreneurs who want to grow but lack the time for every administrative task.",
+      "I adapt to the needs of each client because an individual approach matters to me. Instead of one generic solution, you get support that fits your way of working.",
+      "By working with a virtual assistant you can delegate the tasks that eat up your time and focus on growing your company."
+    ]
+  },
+  "pricing": {
+    "label": "Packages",
+    "title": "Service pricing",
+    "tabs": [
+      {
+        "id": "dm",
+        "label": "Social media",
+        "cards": [
+          {
+            "name": "Basic package",
+            "subtitle": "Start Up",
+            "price": 350,
+            "unit": "/ month",
+            "badge": null,
+            "description": "Suitable for smaller businesses looking to grow their social media presence",
+            "features": [
+              "Profile management on 1–2 networks",
+              "8–12 posts per month (reels, video, photo, story)",
+              "Audience engagement",
+              "Post scheduling in advance",
+              "1 photoshoot per month",
+              "Replying to up to 10 reviews (TripAdvisor, Google Ads)",
+              "Paid ads management"
+            ],
+            "cta": "Choose package"
+          },
+          {
+            "name": "Standard package",
+            "subtitle": "Growth",
+            "price": 450,
+            "unit": "/ month",
+            "badge": "Most popular",
+            "description": "Ideal for growing businesses that want to strengthen their online presence",
+            "features": [
+              "Profile management on 2–3 networks",
+              "16 posts per month (reels, video, photo, story)",
+              "Audience engagement",
+              "2 photoshoots per month",
+              "Post scheduling in advance",
+              "Replying to up to 25 reviews (TripAdvisor, Google Ads)",
+              "Detailed monthly reports",
+              "Paid ads management"
+            ],
+            "cta": "Choose package"
+          },
+          {
+            "name": "Premium package",
+            "subtitle": "Expansion",
+            "price": 850,
+            "unit": "/ month",
+            "badge": null,
+            "description": "For brands seeking a comprehensive, full-service approach",
+            "features": [
+              "Profile management on 3–5 networks",
+              "25–30 posts per month (reels, video, photo, story)",
+              "Audience engagement",
+              "4 photoshoots per month",
+              "Post scheduling in advance",
+              "Unlimited review responses",
+              "Full campaign management and optimization",
+              "Detailed monthly report"
+            ],
+            "cta": "Choose package"
+          }
+        ]
+      },
+      {
+        "id": "kn",
+        "label": "Bookkeeping & administration",
+        "cards": [
+          {
+            "name": "Administration",
+            "price": 15,
+            "unit": "/ hour",
+            "badge": null,
+            "features": [
+              "Email and calendar management",
+              "Document organization and archiving",
+              "Data entry and processing",
+              "Filling out forms and preparing documents",
+              "Creating reports and data analysis",
+              "Preparing and sending invoices",
+              "Entering receipts for inventory records",
+              "Replying to customer inquiries via email",
+              "Sending reminders to clients",
+              "Arranging and coordinating booked groups"
+            ],
+            "cta": "Choose package"
+          },
+          {
+            "name": "Bookkeeping",
+            "price": 15,
+            "unit": "/ hour",
+            "badge": null,
+            "features": [
+              "Recording incoming and outgoing invoices",
+              "Payment and collection records",
+              "VAT calculation and filing VAT returns",
+              "Reconciling customer and supplier balances",
+              "Recording bank statements",
+              "Payroll and employee record-keeping",
+              "Preparing and submitting JOPPD forms",
+              "Sick leave and holiday records",
+              "Calculating contributions and income tax"
+            ],
+            "cta": "Choose package"
+          },
+          {
+            "name": "Worker registration / deregistration",
+            "price": 30,
+            "unit": "/ worker",
+            "badge": null,
+            "features": [
+              "Registering or deregistering employees with HZMO, HZZO and MUP",
+              "Preparing and submitting work permit applications",
+              "Assistance with communication with the relevant institutions",
+              "For urgent registrations/deregistrations within 24h — additional fee by arrangement"
+            ],
+            "cta": "Choose package"
+          },
+          {
+            "name": "Custom packages",
+            "price": null,
+            "priceLabel": "On request",
+            "unit": null,
+            "badge": null,
+            "features": [
+              "Designed for establishing long-term cooperation",
+              "Custom pricing by arrangement"
+            ],
+            "cta": "Choose package"
+          }
+        ]
+      }
+    ]
+  },
+  "contact": {
+    "label": "Contact",
+    "titleLead": "A virtual assistant ",
+    "titleAccent": "for the future",
+    "infoHeading": "Reach out with confidence",
+    "infoText": "If you have questions or want to learn more about how I can help your business, feel free to get in touch. I reply within 24 hours.",
+    "phone": "091 9342948",
+    "email": "info.adriava@gmail.com",
+    "form": {
+      "nameLabel": "Full name",
+      "namePlaceholder": "Ana Horvat",
+      "emailLabel": "Email address",
+      "emailPlaceholder": "ana@company.com",
+      "messageLabel": "Message",
+      "messagePlaceholder": "Describe what you need...",
+      "submit": "Send message →",
+      "sending": "Sending...",
+      "success": "✓ Your message has been sent. We'll reply within 24 hours.",
+      "error": "Something went wrong while sending. Please try again or email us directly."
+    }
+  },
+  "footer": {
+    "copy": "© 2026 Adria VA — Virtual assistance business · Split"
+  }
+}

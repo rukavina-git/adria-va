@@ -1,0 +1,909 @@
+<!DOCTYPE html>
+<html lang="hr">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Adria VA — Reference Design (Concept B)</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&display=swap" rel="stylesheet" />
+<style>
+  :root {
+    --brand: #0e455b;
+    --brand-dark: #082d3c;
+    --brand-light: #e8f2f6;
+    --accent: #d8c199;
+    --accent-dark: #b8a070;
+    --text: #1a1a1a;
+    --text-muted: #6b7280;
+    --border: #e5e7eb;
+    --white: #ffffff;
+    --bg: #f9fafb;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: 'DM Sans', sans-serif;
+    color: var(--text);
+    background: var(--white);
+    font-size: 16px;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* ── NAV ── */
+  nav {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background: var(--brand-dark);
+    padding: 0 48px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 64px;
+  }
+
+  .nav-logo {
+    font-size: 16px;
+    font-weight: 500;
+    color: var(--white);
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+  }
+
+  .nav-logo span {
+    color: var(--accent);
+  }
+
+  .nav-links {
+    display: flex;
+    align-items: center;
+    gap: 28px;
+    list-style: none;
+  }
+
+  .nav-links a {
+    font-size: 13px;
+    color: rgba(255,255,255,0.55);
+    text-decoration: none;
+    letter-spacing: 0.02em;
+    transition: color 0.2s;
+  }
+
+  .nav-links a:hover { color: rgba(255,255,255,0.9); }
+
+  .nav-lang {
+    display: flex;
+    gap: 2px;
+    background: rgba(255,255,255,0.08);
+    border-radius: 4px;
+    padding: 2px;
+  }
+
+  .nav-lang a {
+    font-size: 11px;
+    font-weight: 500;
+    padding: 4px 10px;
+    border-radius: 3px;
+    text-decoration: none;
+    letter-spacing: 0.05em;
+  }
+
+  .nav-lang a.active {
+    background: var(--accent);
+    color: var(--brand-dark);
+  }
+
+  .nav-lang a:not(.active) {
+    color: rgba(255,255,255,0.4);
+  }
+
+  /* ── HERO ── */
+  .hero {
+    background: var(--brand-dark);
+    padding: 88px 48px 96px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 16px;
+  }
+
+  .hero-eyebrow {
+    font-size: 11px;
+    color: var(--accent);
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    font-weight: 400;
+  }
+
+  .hero h1 {
+    font-size: 42px;
+    font-weight: 300;
+    color: var(--white);
+    line-height: 1.15;
+    max-width: 600px;
+    letter-spacing: -0.01em;
+  }
+
+  .hero h1 em {
+    font-style: italic;
+    color: var(--accent);
+    font-weight: 300;
+  }
+
+  .hero-sub {
+    font-size: 15px;
+    color: rgba(255,255,255,0.5);
+    max-width: 420px;
+    line-height: 1.7;
+    margin-top: 4px;
+  }
+
+  .hero-ctas {
+    display: flex;
+    gap: 12px;
+    margin-top: 16px;
+  }
+
+  .btn-primary {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 13px;
+    font-weight: 500;
+    padding: 12px 28px;
+    border-radius: 40px;
+    background: var(--accent);
+    color: var(--brand-dark);
+    border: none;
+    cursor: pointer;
+    letter-spacing: 0.02em;
+    text-decoration: none;
+    transition: background 0.2s, transform 0.15s;
+    display: inline-block;
+  }
+
+  .btn-primary:hover {
+    background: var(--accent-dark);
+    transform: translateY(-1px);
+  }
+
+  .btn-ghost {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 13px;
+    font-weight: 400;
+    padding: 12px 28px;
+    border-radius: 40px;
+    background: transparent;
+    color: rgba(255,255,255,0.75);
+    border: 1px solid rgba(255,255,255,0.2);
+    cursor: pointer;
+    letter-spacing: 0.02em;
+    text-decoration: none;
+    transition: border-color 0.2s, color 0.2s;
+    display: inline-block;
+  }
+
+  .btn-ghost:hover {
+    border-color: rgba(255,255,255,0.5);
+    color: var(--white);
+  }
+
+  /* ── SECTION SHARED ── */
+  section { padding: 72px 48px; }
+
+  .section-label {
+    font-size: 10px;
+    font-weight: 500;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--accent-dark);
+    margin-bottom: 8px;
+  }
+
+  .section-title {
+    font-size: 28px;
+    font-weight: 400;
+    color: var(--text);
+    line-height: 1.2;
+    margin-bottom: 40px;
+    letter-spacing: -0.01em;
+  }
+
+  /* ── SERVICES ── */
+  #usluge {
+    background: var(--white);
+  }
+
+  .services-list {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    overflow: hidden;
+    max-width: 720px;
+  }
+
+  .service-row {
+    display: flex;
+    align-items: flex-start;
+    gap: 20px;
+    padding: 24px 28px;
+    border-bottom: 1px solid var(--border);
+    transition: background 0.2s;
+  }
+
+  .service-row:last-child { border-bottom: none; }
+  .service-row:hover { background: var(--brand-light); }
+
+  .service-icon {
+    width: 40px;
+    height: 40px;
+    border-radius: 8px;
+    background: var(--brand-light);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    margin-top: 2px;
+  }
+
+  .service-icon svg {
+    width: 18px;
+    height: 18px;
+    stroke: var(--brand);
+    fill: none;
+    stroke-width: 1.5;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+  }
+
+  .service-title {
+    font-size: 15px;
+    font-weight: 500;
+    color: var(--text);
+    margin-bottom: 4px;
+  }
+
+  .service-desc {
+    font-size: 13px;
+    color: var(--text-muted);
+    line-height: 1.6;
+  }
+
+  /* ── ABOUT ── */
+  #o-meni {
+    background: var(--bg);
+  }
+
+  .about-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 64px;
+    align-items: center;
+    max-width: 960px;
+  }
+
+  .about-text p {
+    font-size: 14px;
+    color: var(--text-muted);
+    line-height: 1.8;
+    margin-bottom: 16px;
+  }
+
+  .about-text p:last-child { margin-bottom: 0; }
+
+  .about-text strong {
+    color: var(--brand);
+    font-weight: 500;
+  }
+
+  .about-image {
+    background: var(--brand-light);
+    border-radius: 12px;
+    aspect-ratio: 4/5;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid rgba(14,69,91,0.08);
+  }
+
+  .about-image svg {
+    width: 48px;
+    height: 48px;
+    stroke: var(--brand);
+    opacity: 0.25;
+    fill: none;
+    stroke-width: 1;
+  }
+
+  /* ── PRICING ── */
+  #cjenik {
+    background: var(--white);
+  }
+
+  .pricing-tabs {
+    display: flex;
+    gap: 4px;
+    background: var(--bg);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 4px;
+    width: fit-content;
+    margin-bottom: 32px;
+  }
+
+  .tab {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 12px;
+    font-weight: 400;
+    padding: 7px 18px;
+    border-radius: 5px;
+    border: none;
+    background: transparent;
+    color: var(--text-muted);
+    cursor: pointer;
+    transition: all 0.2s;
+    letter-spacing: 0.01em;
+  }
+
+  .tab.active {
+    background: var(--brand);
+    color: var(--white);
+    font-weight: 500;
+  }
+
+  .pricing-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+    max-width: 860px;
+  }
+
+  .pricing-card {
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 24px;
+    background: var(--white);
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    transition: border-color 0.2s;
+  }
+
+  .pricing-card:hover { border-color: var(--brand); }
+
+  .pricing-card.featured {
+    border-color: var(--brand);
+    background: var(--brand);
+    position: relative;
+  }
+
+  .pricing-badge {
+    position: absolute;
+    top: -10px;
+    left: 20px;
+    background: var(--accent);
+    color: var(--brand-dark);
+    font-size: 10px;
+    font-weight: 500;
+    padding: 3px 10px;
+    border-radius: 4px;
+    letter-spacing: 0.04em;
+  }
+
+  .pricing-name {
+    font-size: 12px;
+    font-weight: 500;
+    color: var(--text-muted);
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+  }
+
+  .pricing-card.featured .pricing-name { color: rgba(255,255,255,0.5); }
+
+  .pricing-price {
+    font-size: 32px;
+    font-weight: 300;
+    color: var(--brand);
+    letter-spacing: -0.02em;
+    line-height: 1;
+  }
+
+  .pricing-card.featured .pricing-price { color: var(--white); }
+
+  .pricing-price span {
+    font-size: 13px;
+    font-weight: 400;
+    color: var(--text-muted);
+    letter-spacing: 0;
+  }
+
+  .pricing-card.featured .pricing-price span { color: rgba(255,255,255,0.45); }
+
+  .pricing-features {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    flex: 1;
+  }
+
+  .pricing-features li {
+    font-size: 12px;
+    color: var(--text-muted);
+    padding-left: 16px;
+    position: relative;
+    line-height: 1.5;
+  }
+
+  .pricing-card.featured .pricing-features li { color: rgba(255,255,255,0.65); }
+
+  .pricing-features li::before {
+    content: '—';
+    position: absolute;
+    left: 0;
+    color: var(--accent-dark);
+    font-size: 10px;
+    top: 3px;
+  }
+
+  .pricing-card.featured .pricing-features li::before { color: var(--accent); }
+
+  .pricing-cta {
+    display: block;
+    text-align: center;
+    font-size: 12px;
+    font-weight: 500;
+    padding: 9px 0;
+    border-radius: 6px;
+    border: 1px solid var(--border);
+    color: var(--text);
+    text-decoration: none;
+    transition: all 0.2s;
+    letter-spacing: 0.02em;
+  }
+
+  .pricing-cta:hover {
+    border-color: var(--brand);
+    color: var(--brand);
+  }
+
+  .pricing-card.featured .pricing-cta {
+    background: var(--accent);
+    border-color: var(--accent);
+    color: var(--brand-dark);
+  }
+
+  .pricing-card.featured .pricing-cta:hover {
+    background: var(--accent-dark);
+    border-color: var(--accent-dark);
+  }
+
+  /* ── CONTACT ── */
+  #kontakt {
+    background: var(--bg);
+  }
+
+  .contact-grid {
+    display: grid;
+    grid-template-columns: 1fr 1.4fr;
+    gap: 64px;
+    align-items: start;
+    max-width: 860px;
+  }
+
+  .contact-info h3 {
+    font-size: 18px;
+    font-weight: 400;
+    color: var(--text);
+    margin-bottom: 12px;
+  }
+
+  .contact-info p {
+    font-size: 13px;
+    color: var(--text-muted);
+    line-height: 1.7;
+    margin-bottom: 24px;
+  }
+
+  .contact-detail {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 12px;
+  }
+
+  .contact-detail svg {
+    width: 16px;
+    height: 16px;
+    stroke: var(--brand);
+    fill: none;
+    stroke-width: 1.5;
+    stroke-linecap: round;
+    flex-shrink: 0;
+  }
+
+  .contact-detail span {
+    font-size: 13px;
+    color: var(--text-muted);
+  }
+
+  .contact-form {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+  }
+
+  .form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 14px;
+  }
+
+  .form-field {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+  }
+
+  .form-field label {
+    font-size: 11px;
+    font-weight: 500;
+    color: var(--text-muted);
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+  }
+
+  .form-field input,
+  .form-field textarea {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 13px;
+    padding: 10px 14px;
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    background: var(--white);
+    color: var(--text);
+    outline: none;
+    transition: border-color 0.2s;
+    resize: none;
+  }
+
+  .form-field input:focus,
+  .form-field textarea:focus {
+    border-color: var(--brand);
+  }
+
+  .form-field textarea { min-height: 100px; }
+
+  .btn-submit {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 13px;
+    font-weight: 500;
+    padding: 12px 28px;
+    border-radius: 6px;
+    background: var(--brand);
+    color: var(--white);
+    border: none;
+    cursor: pointer;
+    letter-spacing: 0.02em;
+    align-self: flex-start;
+    transition: background 0.2s;
+  }
+
+  .btn-submit:hover { background: var(--brand-dark); }
+
+  /* ── FOOTER ── */
+  footer {
+    background: var(--brand-dark);
+    padding: 32px 48px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .footer-logo {
+    font-size: 14px;
+    font-weight: 500;
+    color: rgba(255,255,255,0.6);
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+  }
+
+  .footer-logo span { color: var(--accent); }
+
+  .footer-copy {
+    font-size: 11px;
+    color: rgba(255,255,255,0.25);
+  }
+
+  /* ── PRICING TAB TOGGLE JS ── */
+  .pricing-panel { display: none; }
+  .pricing-panel.active { display: block; }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-logo">Adria <span>VA</span></div>
+  <ul class="nav-links">
+    <li><a href="#usluge">Usluge</a></li>
+    <li><a href="#o-meni">O meni</a></li>
+    <li><a href="#cjenik">Cjenik</a></li>
+    <li><a href="#kontakt">Kontakt</a></li>
+    <li>
+      <div class="nav-lang">
+        <a href="#" class="active">HR</a>
+        <a href="#">EN</a>
+      </div>
+    </li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <p class="hero-eyebrow">Virtualni asistent · Split, Hrvatska</p>
+  <h1>Vaše poslovanje raste<br>kad ne morate<br><em>sve raditi sami.</em></h1>
+  <p class="hero-sub">Delegirajte administrativne, računovodstvene i marketing zadatke. Vi se fokusirajte na ono što zaista donosi rezultate.</p>
+  <div class="hero-ctas">
+    <a href="#kontakt" class="btn-primary">Zatražite ponudu</a>
+    <a href="#cjenik" class="btn-ghost">Pogledajte cjenik</a>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section id="usluge">
+  <p class="section-label">Što nudim</p>
+  <h2 class="section-title">Usluge prilagođene<br>vašem poslovanju</h2>
+  <div class="services-list">
+    <div class="service-row">
+      <div class="service-icon">
+        <svg viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+      </div>
+      <div>
+        <p class="service-title">Društvene mreže</p>
+        <p class="service-desc">Kreiranje sadržaja, planiranje objava, upravljanje profilima, oglašavanje na Facebook i Instagram platformama, analitika i izvještavanje.</p>
+      </div>
+    </div>
+    <div class="service-row">
+      <div class="service-icon">
+        <svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg>
+      </div>
+      <div>
+        <p class="service-title">Knjigovodstvo</p>
+        <p class="service-desc">Osnovna knjigovodstvena podrška, izdavanje i praćenje računa, evidencija troškova, PDV prijave i priprema dokumentacije za knjigovođu.</p>
+      </div>
+    </div>
+    <div class="service-row">
+      <div class="service-icon">
+        <svg viewBox="0 0 24 24"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>
+      </div>
+      <div>
+        <p class="service-title">Administracija</p>
+        <p class="service-desc">Upravljanje e-mailom i kalendarom, priprema dokumentacije, prijave stranih radnika, organizacija putovanja i koordinacija poslovnih procesa.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section id="o-meni">
+  <p class="section-label">O meni</p>
+  <h2 class="section-title">Zašto baš Adria VA?</h2>
+  <div class="about-grid">
+    <div class="about-text">
+      <p>Predana, ambiciozna i uvijek spremna učiti — to su kvalitete koje prenosim i u vaše poslovanje. <strong>Obrt Adria VA</strong> nastao je iz ljubavi prema poslu i želje da pomognem poduzetnicima koji žele rasti, ali im nedostaje vremena za sve administrativne zadatke.</p>
+      <p>Prilagođavam se potrebama svakog klijenta jer mi je individualan pristup jako bitan. Umjesto jednog generičnog rješenja, dobivate podršku koja se uklapa u vaš ritam rada.</p>
+      <p>Korištenjem virtualnog asistenta možete delegirati zadatke koji vam oduzimaju vrijeme i fokusirati se na rast svoje tvrtke.</p>
+    </div>
+    <div class="about-image">
+      <svg viewBox="0 0 24 24" stroke-width="1"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+    </div>
+  </div>
+</section>
+
+<!-- PRICING -->
+<section id="cjenik">
+  <p class="section-label">Paketi</p>
+  <h2 class="section-title">Cjenik usluga</h2>
+
+  <div class="pricing-tabs">
+    <button class="tab active" onclick="showTab('dm')">Društvene mreže</button>
+    <button class="tab" onclick="showTab('kn')">Knjigovodstvo</button>
+    <button class="tab" onclick="showTab('ad')">Administracija</button>
+  </div>
+
+  <!-- Društvene mreže -->
+  <div class="pricing-panel active" id="tab-dm">
+    <div class="pricing-grid">
+      <div class="pricing-card">
+        <p class="pricing-name">Start-up</p>
+        <p class="pricing-price">200 € <span>/ mjesečno</span></p>
+        <ul class="pricing-features">
+          <li>1–3 društvene mreže</li>
+          <li>8–10 objava mjesečno</li>
+          <li>Canva grafike (foto, video, story)</li>
+          <li>Inovacije s publikom</li>
+          <li>Planiranje objava sadržaja</li>
+          <li>Oglašavanje na FB/IG (do 80 min/mj)</li>
+        </ul>
+        <a href="#kontakt" class="pricing-cta">Odaberite paket</a>
+      </div>
+      <div class="pricing-card featured">
+        <span class="pricing-badge">Najpopularnije</span>
+        <p class="pricing-name">Standardni</p>
+        <p class="pricing-price">400 € <span>/ mjesečno</span></p>
+        <ul class="pricing-features">
+          <li>1–3 društvene mreže</li>
+          <li>16 objava mjesečno</li>
+          <li>Canva grafike + Reels video sadržaj</li>
+          <li>Odgovaranje na komentare</li>
+          <li>Planiranje objava sadržaja</li>
+          <li>Oglašavanje na FB/IG (do 75 min/mj)</li>
+          <li>Google Ads osnovno</li>
+          <li>Dizajn kampanje i bannera</li>
+          <li>Analytics izvještaj</li>
+        </ul>
+        <a href="#kontakt" class="pricing-cta">Odaberite paket</a>
+      </div>
+      <div class="pricing-card">
+        <p class="pricing-name">Premium</p>
+        <p class="pricing-price">650 € <span>/ mjesečno</span></p>
+        <ul class="pricing-features">
+          <li>1–5 društvenih mreža</li>
+          <li>20+ objava mjesečno</li>
+          <li>Canva grafike + video produkcija</li>
+          <li>Fotogafiranje sadržaja</li>
+          <li>Napredno oglašavanje + retargeting</li>
+          <li>Potpuno upravljanje zajednicom</li>
+          <li>Strateški content plan</li>
+        </ul>
+        <a href="#kontakt" class="pricing-cta">Odaberite paket</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Knjigovodstvo -->
+  <div class="pricing-panel" id="tab-kn">
+    <div class="pricing-grid">
+      <div class="pricing-card">
+        <p class="pricing-name">Osnovno</p>
+        <p class="pricing-price">15 € <span>/ sat</span></p>
+        <ul class="pricing-features">
+          <li>Knjiženje primitaka i izdataka</li>
+          <li>Evidencija plaćanja i naplate</li>
+          <li>Obrada putnih naloga</li>
+          <li>Obračun plaća (do 5 zaposlenika)</li>
+          <li>Priprema za knjigovođu</li>
+        </ul>
+        <a href="#kontakt" class="pricing-cta">Odaberite paket</a>
+      </div>
+      <div class="pricing-card featured">
+        <span class="pricing-badge">Najpopularnije</span>
+        <p class="pricing-name">Plaće i obračuni</p>
+        <p class="pricing-price">15 € <span>/ sat</span></p>
+        <ul class="pricing-features">
+          <li>Priprema podložaka JOPPD obrasca</li>
+          <li>Evidencija bolovanja i godišnjih odmora</li>
+          <li>Priprema ugovora o radu i aneksa</li>
+          <li>Godišnji obračun za dulji radni odnos</li>
+          <li>Dostava dokumentacije za aktivnosti</li>
+        </ul>
+        <a href="#kontakt" class="pricing-cta">Odaberite paket</a>
+      </div>
+      <div class="pricing-card">
+        <p class="pricing-name">Prilagođeni</p>
+        <p class="pricing-price" style="font-size:20px;padding-top:6px;">Po dogovoru</p>
+        <ul class="pricing-features">
+          <li>Individualni pristup za dugoročnu suradnju</li>
+          <li>Kombinacija svih usluga</li>
+          <li>Prilagođena cijena</li>
+        </ul>
+        <a href="#kontakt" class="pricing-cta">Kontaktirajte nas</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Administracija -->
+  <div class="pricing-panel" id="tab-ad">
+    <div class="pricing-grid">
+      <div class="pricing-card">
+        <p class="pricing-name">Administracija</p>
+        <p class="pricing-price">10 € <span>/ sat</span></p>
+        <ul class="pricing-features">
+          <li>Organizacija e-maila i kalendara</li>
+          <li>Arhiviranje i upravljanje dokumentima</li>
+          <li>Unos i ažuriranje podataka</li>
+          <li>Priprema i slanje upita</li>
+          <li>"Cover" za odsutnost vlasnika</li>
+          <li>Organizacija poslovnih putovanja</li>
+        </ul>
+        <a href="#kontakt" class="pricing-cta">Odaberite paket</a>
+      </div>
+      <div class="pricing-card featured">
+        <span class="pricing-badge">Najpopularnije</span>
+        <p class="pricing-name">Prijava stranih radnika</p>
+        <p class="pricing-price">30 € <span>/ radnik</span></p>
+        <ul class="pricing-features">
+          <li>Prijava u sustav ZZHZ i HZMO i MUP</li>
+          <li>Popunjavanje radnih knjižica i tablice</li>
+          <li>Asistencija i komunikacija s nadležnim tijelima</li>
+        </ul>
+        <a href="#kontakt" class="pricing-cta">Odaberite paket</a>
+      </div>
+      <div class="pricing-card">
+        <p class="pricing-name">Prilagođeni</p>
+        <p class="pricing-price" style="font-size:20px;padding-top:6px;">Po dogovoru</p>
+        <ul class="pricing-features">
+          <li>Individualni pristup</li>
+          <li>Dugoročna suradnja</li>
+          <li>Prilagođena cijena</li>
+        </ul>
+        <a href="#kontakt" class="pricing-cta">Kontaktirajte nas</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="kontakt">
+  <p class="section-label">Kontakt</p>
+  <h2 class="section-title">Virtualni asistent<br>za budućnost</h2>
+  <div class="contact-grid">
+    <div class="contact-info">
+      <h3>Javite mi se s povjerenjem</h3>
+      <p>Ako imate pitanja ili želite saznati više o tome kako mogu pomoći vašem poslovanju, slobodno me kontaktirajte. Odgovaram u roku od 24 sata.</p>
+      <div class="contact-detail">
+        <svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 13a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 9.91a16 16 0 0 0 6 6l.91-.91a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 21.73 17z"/></svg>
+        <span>091 9342948</span>
+      </div>
+      <div class="contact-detail">
+        <svg viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+        <span>info.adriava@gmail.com</span>
+      </div>
+    </div>
+    <form class="contact-form" onsubmit="handleSubmit(event)">
+      <div class="form-row">
+        <div class="form-field">
+          <label>Ime i prezime</label>
+          <input type="text" placeholder="Ana Horvat" required />
+        </div>
+        <div class="form-field">
+          <label>E-mail adresa</label>
+          <input type="email" placeholder="ana@tvrtka.hr" required />
+        </div>
+      </div>
+      <div class="form-field">
+        <label>Poruka</label>
+        <textarea placeholder="Opišite što vam je potrebno..."></textarea>
+      </div>
+      <button type="submit" class="btn-submit">Pošaljite poruku →</button>
+      <p id="form-success" style="display:none;font-size:13px;color:#0e455b;font-weight:500;">✓ Poruka je uspješno poslana. Odgovorit ćemo u roku od 24 sata.</p>
+    </form>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-logo">Adria <span>VA</span></div>
+  <p class="footer-copy">© 2026 Adria VA — Obrt za virtualnu asistenciju · Split</p>
+</footer>
+
+<script>
+  function showTab(id) {
+    document.querySelectorAll('.pricing-panel').forEach(p => p.classList.remove('active'));
+    document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+    document.getElementById('tab-' + id).classList.add('active');
+    event.target.classList.add('active');
+  }
+
+  function handleSubmit(e) {
+    e.preventDefault();
+    document.getElementById('form-success').style.display = 'block';
+  }
+</script>
+</body>
+</html>
