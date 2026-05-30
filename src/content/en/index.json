@@ -226,7 +226,8 @@
     "errors": {
       "nameRequired": "Full name is required.",
       "emailRequired": "Email address is required.",
-      "emailInvalid": "Please enter a valid email address."
+      "emailInvalid": "Please enter a valid email address.",
+      "messageRequired": "Message cannot be empty."
     }
   },
   "cookies": {

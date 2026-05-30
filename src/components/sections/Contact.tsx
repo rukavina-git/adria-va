@@ -16,7 +16,8 @@ const labelClass =
 
 export default function Contact({ contact }: { contact: Content["contact"] }) {
   const [status, setStatus] = useState<Status>("idle");
-  const [errors, setErrors] = useState<{ name?: string; email?: string }>({});
+  const [errors, setErrors] = useState<{ name?: string; email?: string; message?: string }>({});
+  const [messageCount, setMessageCount] = useState(0);
   const { executeRecaptcha } = useGoogleReCaptcha();
   const form = contact.form;
   const errorMessages = contact.errors;
@@ -29,11 +30,13 @@ export default function Contact({ contact }: { contact: Content["contact"] }) {
 
     const name = (data.get("name") as string).trim();
     const email = (data.get("email") as string).trim();
+    const message = (data.get("message") as string).trim();
 
-    const newErrors: { name?: string; email?: string } = {};
+    const newErrors: { name?: string; email?: string; message?: string } = {};
     if (!name) newErrors.name = errorMessages.nameRequired;
     if (!email) newErrors.email = errorMessages.emailRequired;
     else if (!EMAIL_REGEX.test(email)) newErrors.email = errorMessages.emailInvalid;
+    if (!message) newErrors.message = errorMessages.messageRequired;
 
     if (Object.keys(newErrors).length > 0) {
       setErrors(newErrors);
@@ -61,6 +64,7 @@ export default function Contact({ contact }: { contact: Content["contact"] }) {
       if (!response.ok) throw new Error("Request failed");
 
       element.reset();
+      setMessageCount(0);
       setStatus("success");
     } catch {
       setStatus("error");
@@ -175,12 +179,33 @@ export default function Contact({ contact }: { contact: Content["contact"] }) {
             <label htmlFor="message" className={labelClass}>
               {form.messageLabel}
             </label>
-            <textarea
-              id="message"
-              name="message"
-              placeholder={form.messagePlaceholder}
-              className={`${inputClass} min-h-[100px] resize-none`}
-            />
+            <div className="relative">
+              <textarea
+                id="message"
+                name="message"
+                placeholder={form.messagePlaceholder}
+                maxLength={500}
+                className={`${inputClass} min-h-[100px] w-full resize-none`}
+                onBlur={(e) => {
+                  const error = !e.target.value.trim() ? errorMessages.messageRequired : undefined;
+                  if (error) setErrors(prev => ({ ...prev, message: error }));
+                }}
+                onChange={(e) => {
+                  setMessageCount(e.target.value.length);
+                  if (errors.message && e.target.value.trim()) setErrors(prev => ({ ...prev, message: undefined }));
+                }}
+              />
+              <span
+                className={`absolute bottom-2 right-3 text-xs ${
+                  messageCount >= 500 ? "text-red-500" : messageCount > 400 ? "text-yellow-500" : "text-gray-400"
+                }`}
+              >
+                {messageCount}/500
+              </span>
+            </div>
+            {errors.message && (
+              <p className="text-red-500 text-xs mt-1">{errors.message}</p>
+            )}
           </div>
           <button
             type="submit"

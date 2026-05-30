@@ -24,7 +24,8 @@ export default function PackageModal({
   onClose,
 }: PackageModalProps) {
   const [status, setStatus] = useState<Status>("idle");
-  const [errors, setErrors] = useState<{ name?: string; email?: string }>({});
+  const [errors, setErrors] = useState<{ name?: string; email?: string; message?: string }>({});
+  const [messageCount, setMessageCount] = useState(0);
   const { executeRecaptcha } = useGoogleReCaptcha();
   const hasErrors = Object.values(errors).some(Boolean);
 
@@ -34,11 +35,13 @@ export default function PackageModal({
 
     const name = (data.get("name") as string).trim();
     const email = (data.get("email") as string).trim();
+    const message = (data.get("message") as string).trim();
 
-    const newErrors: { name?: string; email?: string } = {};
+    const newErrors: { name?: string; email?: string; message?: string } = {};
     if (!name) newErrors.name = "Ime i prezime je obavezno polje.";
     if (!email) newErrors.email = "E-mail adresa je obavezna.";
     else if (!EMAIL_REGEX.test(email)) newErrors.email = "Unesite ispravnu e-mail adresu.";
+    if (!message) newErrors.message = "Poruka ne smije biti prazna.";
 
     if (Object.keys(newErrors).length > 0) {
       setErrors(newErrors);
@@ -176,12 +179,33 @@ export default function PackageModal({
               <label htmlFor="modal-message" className={labelClass}>
                 Poruka
               </label>
-              <textarea
-                id="modal-message"
-                name="message"
-                placeholder="Dodatne napomene ili pitanja..."
-                className={`${inputClass} min-h-[90px] resize-none`}
-              />
+              <div className="relative">
+                <textarea
+                  id="modal-message"
+                  name="message"
+                  placeholder="Dodatne napomene ili pitanja..."
+                  maxLength={500}
+                  className={`${inputClass} min-h-[90px] w-full resize-none`}
+                  onBlur={(e) => {
+                    const error = !e.target.value.trim() ? "Poruka ne smije biti prazna." : undefined;
+                    if (error) setErrors(prev => ({ ...prev, message: error }));
+                  }}
+                  onChange={(e) => {
+                    setMessageCount(e.target.value.length);
+                    if (errors.message && e.target.value.trim()) setErrors(prev => ({ ...prev, message: undefined }));
+                  }}
+                />
+                <span
+                  className={`absolute bottom-2 right-3 text-xs ${
+                    messageCount >= 500 ? "text-red-500" : messageCount > 400 ? "text-yellow-500" : "text-gray-400"
+                  }`}
+                >
+                  {messageCount}/500
+                </span>
+              </div>
+              {errors.message && (
+                <p className="text-red-500 text-xs mt-1">{errors.message}</p>
+              )}
             </div>
             <button
               type="submit"

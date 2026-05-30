@@ -31,6 +31,7 @@ export interface ContactErrors {
   nameRequired: string;
   emailRequired: string;
   emailInvalid: string;
+  messageRequired: string;
 }
 
 export interface ContactForm {

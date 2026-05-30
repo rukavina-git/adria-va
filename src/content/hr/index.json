@@ -226,7 +226,8 @@
     "errors": {
       "nameRequired": "Ime i prezime je obavezno polje.",
       "emailRequired": "E-mail adresa je obavezna.",
-      "emailInvalid": "Unesite ispravnu e-mail adresu."
+      "emailInvalid": "Unesite ispravnu e-mail adresu.",
+      "messageRequired": "Poruka ne smije biti prazna."
     }
   },
   "cookies": {
