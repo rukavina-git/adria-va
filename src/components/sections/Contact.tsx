@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect, type FormEvent } from "react";
+import { useState, type FormEvent } from "react";
 import { useGoogleReCaptcha } from "react-google-recaptcha-v3";
 import SectionLabel from "@/components/ui/SectionLabel";
 import type { Content } from "@/lib/content";
@@ -14,17 +14,8 @@ const labelClass =
 
 export default function Contact({ contact }: { contact: Content["contact"] }) {
   const [status, setStatus] = useState<Status>("idle");
-  const [consentDeclined, setConsentDeclined] = useState(false);
   const { executeRecaptcha } = useGoogleReCaptcha();
   const form = contact.form;
-
-  useEffect(() => {
-    setConsentDeclined(localStorage.getItem("cookie_consent") === "declined");
-    const handler = () =>
-      setConsentDeclined(localStorage.getItem("cookie_consent") === "declined");
-    window.addEventListener("cookie_consent_changed", handler);
-    return () => window.removeEventListener("cookie_consent_changed", handler);
-  }, []);
 
   async function handleSubmit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
@@ -146,19 +137,13 @@ export default function Contact({ contact }: { contact: Content["contact"] }) {
               className={`${inputClass} min-h-[100px] resize-none`}
             />
           </div>
-          {consentDeclined ? (
-            <p className="text-[13px] text-muted">
-              Za slanje poruke potrebno je prihvatiti kolačiće.
-            </p>
-          ) : (
-            <button
-              type="submit"
-              disabled={status === "sending"}
-              className="self-start rounded-md bg-brand px-7 py-3 text-[13px] font-medium tracking-[0.02em] text-white transition hover:bg-brand-dark disabled:cursor-not-allowed disabled:opacity-60"
-            >
-              {status === "sending" ? form.sending : form.submit}
-            </button>
-          )}
+          <button
+            type="submit"
+            disabled={status === "sending"}
+            className="self-start rounded-md bg-brand px-7 py-3 text-[13px] font-medium tracking-[0.02em] text-white transition hover:bg-brand-dark disabled:cursor-not-allowed disabled:opacity-60"
+          >
+            {status === "sending" ? form.sending : form.submit}
+          </button>
           {status === "success" && (
             <p className="text-[13px] font-medium text-brand">{form.success}</p>
           )}

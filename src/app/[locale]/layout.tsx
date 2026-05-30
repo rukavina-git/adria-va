@@ -3,7 +3,7 @@ import { DM_Sans } from "next/font/google";
 import { notFound } from "next/navigation";
 import { NextIntlClientProvider, hasLocale } from "next-intl";
 import { setRequestLocale } from "next-intl/server";
-import ConsentAwareRecaptchaProvider from "@/components/RecaptchaProvider";
+import RecaptchaProvider from "@/components/RecaptchaProvider";
 import CookieBanner from "@/components/ui/CookieBanner";
 import { routing } from "@/i18n/routing";
 import "../globals.css";
@@ -42,10 +42,10 @@ export default async function LocaleLayout({
   return (
     <html lang={locale} className={`${dmSans.variable} scroll-smooth`}>
       <body className="font-sans antialiased">
-        <ConsentAwareRecaptchaProvider siteKey={process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY!}>
+        <RecaptchaProvider siteKey={process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY!}>
           <NextIntlClientProvider>{children}</NextIntlClientProvider>
           <CookieBanner />
-        </ConsentAwareRecaptchaProvider>
+        </RecaptchaProvider>
       </body>
     </html>
   );
