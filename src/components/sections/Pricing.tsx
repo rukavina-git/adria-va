@@ -114,11 +114,11 @@ function PricingCard({
       <button
         type="button"
         onClick={() => onSelect({ name: displayName, price: priceDisplay })}
-        className={`block rounded-md py-[9px] text-center text-[12px] font-medium tracking-[0.02em] transition ${
+        className={
           featured
-            ? "border border-accent bg-accent text-brand-dark hover:border-accent-dark hover:bg-accent-dark"
-            : "border border-line text-ink hover:border-brand hover:text-brand"
-        }`}
+            ? "block rounded-md py-[9px] text-center text-[12px] font-medium tracking-[0.02em] transition border border-accent bg-accent text-brand-dark hover:border-accent-dark hover:bg-accent-dark"
+            : "border border-brand text-brand hover:bg-brand hover:text-white transition-colors duration-200 rounded-lg py-2 px-4 w-full"
+        }
       >
         {card.cta}
       </button>

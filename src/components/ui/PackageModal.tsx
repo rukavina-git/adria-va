@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, type FormEvent } from "react";
+import { useState, useEffect, type FormEvent } from "react";
 import { useGoogleReCaptcha } from "react-google-recaptcha-v3";
 
 interface PackageModalProps {
@@ -22,7 +22,16 @@ export default function PackageModal({
   onClose,
 }: PackageModalProps) {
   const [status, setStatus] = useState<Status>("idle");
+  const [consentDeclined, setConsentDeclined] = useState(false);
   const { executeRecaptcha } = useGoogleReCaptcha();
+
+  useEffect(() => {
+    setConsentDeclined(localStorage.getItem("cookie_consent") === "declined");
+    const handler = () =>
+      setConsentDeclined(localStorage.getItem("cookie_consent") === "declined");
+    window.addEventListener("cookie_consent_changed", handler);
+    return () => window.removeEventListener("cookie_consent_changed", handler);
+  }, []);
 
   async function handleSubmit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
@@ -143,13 +152,19 @@ export default function PackageModal({
                 className={`${inputClass} min-h-[90px] resize-none`}
               />
             </div>
-            <button
-              type="submit"
-              disabled={status === "sending"}
-              className="mt-1 w-full rounded-md bg-brand px-7 py-3 text-[13px] font-medium tracking-[0.02em] text-white transition hover:bg-brand-dark disabled:cursor-not-allowed disabled:opacity-60"
-            >
-              {status === "sending" ? "Slanje..." : "Pošaljite upit"}
-            </button>
+            {consentDeclined ? (
+              <p className="mt-1 text-[13px] text-muted">
+                Za slanje poruke potrebno je prihvatiti kolačiće.
+              </p>
+            ) : (
+              <button
+                type="submit"
+                disabled={status === "sending"}
+                className="mt-1 w-full rounded-md bg-brand px-7 py-3 text-[13px] font-medium tracking-[0.02em] text-white transition hover:bg-brand-dark disabled:cursor-not-allowed disabled:opacity-60"
+              >
+                {status === "sending" ? "Slanje..." : "Pošaljite upit"}
+              </button>
+            )}
             {status === "error" && (
               <p className="text-[13px] font-medium text-red-600">
                 Došlo je do pogreške pri slanju. Pokušajte ponovno ili nam pišite

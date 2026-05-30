@@ -1,12 +1,18 @@
+import Link from "next/link";
+
 export default function Footer({
   copy,
   legal,
   recaptcha,
+  locale,
 }: {
   copy: string;
   legal: string;
   recaptcha: string;
+  locale: string;
 }) {
+  const privacyText = locale === "en" ? "Privacy Policy" : "Politika privatnosti";
+
   return (
     <footer className="bg-brand-dark py-8">
       <div className="mx-auto w-full max-w-5xl px-6 md:px-12">
@@ -22,6 +28,12 @@ export default function Footer({
             className="mt-2 text-xs text-white/30 [&_a]:text-white/40 [&_a]:underline [&_a]:hover:text-white/60"
             dangerouslySetInnerHTML={{ __html: recaptcha }}
           />
+          <Link
+            href={`/${locale}/privacy`}
+            className="mt-2 inline-block text-xs text-white/30 hover:text-white/50"
+          >
+            {privacyText}
+          </Link>
         </div>
       </div>
     </footer>

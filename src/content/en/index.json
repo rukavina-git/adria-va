@@ -224,8 +224,11 @@
       "error": "Something went wrong while sending. Please try again or email us directly."
     }
   },
+  "cookies": {
+    "bannerText": "We use cookies to improve your experience and protect our forms from spam. Learn more in our Privacy Policy."
+  },
   "footer": {
-    "copy": "© 2026 Adria VA — Virtual assistance business · Split",
+    "copy": "© 2026 Adria VA — Virtual assistance business",
     "legal": "Adria VA Sole Proprietorship – Virtual Assistant Services · Owner: Ana Marija Rukavina · Česvinica, Croatia · Not subject to VAT pursuant to Art. 90 para. 1 and 2 of the VAT Act (Official Gazette No. 73/13)",
     "recaptcha": "This site is protected by reCAPTCHA and the Google <a href=\"https://policies.google.com/privacy\">Privacy Policy</a> and <a href=\"https://policies.google.com/terms\">Terms of Service</a> apply."
   }
