@@ -92,7 +92,12 @@ export default function Contact({ contact }: { contact: Content["contact"] }) {
               <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" />
               <polyline points="22,6 12,13 2,6" />
             </svg>
-            <span className="text-[13px] text-muted">{contact.email}</span>
+            <a
+                href={`mailto:${contact.email}`}
+                className="text-[13px] text-muted underline underline-offset-2 transition-colors hover:text-ink"
+              >
+                {contact.email}
+              </a>
           </div>
         </div>
 
