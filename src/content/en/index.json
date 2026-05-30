@@ -222,6 +222,11 @@
       "sending": "Sending...",
       "success": "✓ Your message has been sent. We'll reply within 24 hours.",
       "error": "Something went wrong while sending. Please try again or email us directly."
+    },
+    "errors": {
+      "nameRequired": "Full name is required.",
+      "emailRequired": "Email address is required.",
+      "emailInvalid": "Please enter a valid email address."
     }
   },
   "cookies": {

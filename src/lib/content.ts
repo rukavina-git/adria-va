@@ -27,6 +27,12 @@ export interface PricingTab {
   cards: PricingCard[];
 }
 
+export interface ContactErrors {
+  nameRequired: string;
+  emailRequired: string;
+  emailInvalid: string;
+}
+
 export interface ContactForm {
   nameLabel: string;
   namePlaceholder: string;
@@ -61,6 +67,7 @@ export interface Content {
     phone: string;
     email: string;
     form: ContactForm;
+    errors: ContactErrors;
   };
   footer: { copy: string; legal: string; recaptcha: string };
 }

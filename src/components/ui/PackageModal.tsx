@@ -11,6 +11,8 @@ interface PackageModalProps {
 
 type Status = "idle" | "sending" | "success" | "error";
 
+const EMAIL_REGEX = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
 const inputClass =
   "rounded-md border border-line bg-white px-3.5 py-2.5 text-[13px] text-ink outline-none transition focus:border-brand";
 const labelClass =
@@ -22,11 +24,26 @@ export default function PackageModal({
   onClose,
 }: PackageModalProps) {
   const [status, setStatus] = useState<Status>("idle");
+  const [errors, setErrors] = useState<{ name?: string; email?: string }>({});
   const { executeRecaptcha } = useGoogleReCaptcha();
 
   async function handleSubmit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
     const data = new FormData(event.currentTarget);
+
+    const name = (data.get("name") as string).trim();
+    const email = (data.get("email") as string).trim();
+
+    const newErrors: { name?: string; email?: string } = {};
+    if (!name) newErrors.name = "Ime i prezime je obavezno polje.";
+    if (!email) newErrors.email = "E-mail adresa je obavezna.";
+    else if (!EMAIL_REGEX.test(email)) newErrors.email = "Unesite ispravnu e-mail adresu.";
+
+    if (Object.keys(newErrors).length > 0) {
+      setErrors(newErrors);
+      return;
+    }
+    setErrors({});
     setStatus("sending");
 
     try {
@@ -104,9 +121,11 @@ export default function PackageModal({
                 id="modal-name"
                 name="name"
                 type="text"
-                required
                 className={inputClass}
               />
+              {errors.name && (
+                <p className="text-red-500 text-xs mt-1">{errors.name}</p>
+              )}
             </div>
             <div className="flex flex-col gap-1.5">
               <label htmlFor="modal-email" className={labelClass}>
@@ -116,9 +135,11 @@ export default function PackageModal({
                 id="modal-email"
                 name="email"
                 type="email"
-                required
                 className={inputClass}
               />
+              {errors.email && (
+                <p className="text-red-500 text-xs mt-1">{errors.email}</p>
+              )}
             </div>
             <div className="flex flex-col gap-1.5">
               <label htmlFor="modal-phone" className={labelClass}>

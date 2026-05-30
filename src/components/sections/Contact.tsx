@@ -7,6 +7,8 @@ import type { Content } from "@/lib/content";
 
 type Status = "idle" | "sending" | "success" | "error";
 
+const EMAIL_REGEX = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
 const inputClass =
   "rounded-md border border-line bg-white px-3.5 py-2.5 text-[13px] text-ink outline-none transition focus:border-brand";
 const labelClass =
@@ -14,13 +16,29 @@ const labelClass =
 
 export default function Contact({ contact }: { contact: Content["contact"] }) {
   const [status, setStatus] = useState<Status>("idle");
+  const [errors, setErrors] = useState<{ name?: string; email?: string }>({});
   const { executeRecaptcha } = useGoogleReCaptcha();
   const form = contact.form;
+  const errorMessages = contact.errors;
 
   async function handleSubmit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
     const element = event.currentTarget;
     const data = new FormData(element);
+
+    const name = (data.get("name") as string).trim();
+    const email = (data.get("email") as string).trim();
+
+    const newErrors: { name?: string; email?: string } = {};
+    if (!name) newErrors.name = errorMessages.nameRequired;
+    if (!email) newErrors.email = errorMessages.emailRequired;
+    else if (!EMAIL_REGEX.test(email)) newErrors.email = errorMessages.emailInvalid;
+
+    if (Object.keys(newErrors).length > 0) {
+      setErrors(newErrors);
+      return;
+    }
+    setErrors({});
     setStatus("sending");
 
     try {
@@ -111,10 +129,12 @@ export default function Contact({ contact }: { contact: Content["contact"] }) {
                 id="name"
                 name="name"
                 type="text"
-                required
                 placeholder={form.namePlaceholder}
                 className={inputClass}
               />
+              {errors.name && (
+                <p className="text-red-500 text-xs mt-1">{errors.name}</p>
+              )}
             </div>
             <div className="flex flex-col gap-1.5">
               <label htmlFor="email" className={labelClass}>
@@ -124,10 +144,12 @@ export default function Contact({ contact }: { contact: Content["contact"] }) {
                 id="email"
                 name="email"
                 type="email"
-                required
                 placeholder={form.emailPlaceholder}
                 className={inputClass}
               />
+              {errors.email && (
+                <p className="text-red-500 text-xs mt-1">{errors.email}</p>
+              )}
             </div>
           </div>
           <div className="flex flex-col gap-1.5">
@@ -137,7 +159,6 @@ export default function Contact({ contact }: { contact: Content["contact"] }) {
             <textarea
               id="message"
               name="message"
-              required
               placeholder={form.messagePlaceholder}
               className={`${inputClass} min-h-[100px] resize-none`}
             />

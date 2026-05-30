@@ -222,6 +222,11 @@
       "sending": "Slanje...",
       "success": "✓ Poruka je uspješno poslana. Odgovorit ćemo u roku od 24 sata.",
       "error": "Došlo je do pogreške pri slanju. Pokušajte ponovno ili nam pišite izravno."
+    },
+    "errors": {
+      "nameRequired": "Ime i prezime je obavezno polje.",
+      "emailRequired": "E-mail adresa je obavezna.",
+      "emailInvalid": "Unesite ispravnu e-mail adresu."
     }
   },
   "cookies": {
