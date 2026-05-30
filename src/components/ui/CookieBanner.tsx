@@ -33,7 +33,7 @@ export default function CookieBanner() {
   const [before, after] = bannerText.split(linkWord);
 
   return (
-    <div className="fixed bottom-4 right-4 z-50 mx-4 mb-4 w-full max-w-lg rounded-xl border border-white/10 bg-brand-dark p-5 shadow-2xl">
+    <div className="fixed bottom-0 left-0 right-0 md:bottom-4 md:left-auto md:right-4 md:max-w-sm md:rounded-xl rounded-t-xl bg-brand-dark p-5 shadow-2xl z-50">
       <p className="mb-4 text-sm text-white/70">
         {before}
         <Link href={`/${locale}/privacy`} className="underline hover:text-white">

@@ -131,6 +131,9 @@ export default function Contact({ contact }: { contact: Content["contact"] }) {
                 type="text"
                 placeholder={form.namePlaceholder}
                 className={inputClass}
+                onChange={() => {
+                  if (errors.name) setErrors(prev => ({ ...prev, name: undefined }));
+                }}
               />
               {errors.name && (
                 <p className="text-red-500 text-xs mt-1">{errors.name}</p>
@@ -146,6 +149,9 @@ export default function Contact({ contact }: { contact: Content["contact"] }) {
                 type="email"
                 placeholder={form.emailPlaceholder}
                 className={inputClass}
+                onChange={() => {
+                  if (errors.email) setErrors(prev => ({ ...prev, email: undefined }));
+                }}
               />
               {errors.email && (
                 <p className="text-red-500 text-xs mt-1">{errors.email}</p>

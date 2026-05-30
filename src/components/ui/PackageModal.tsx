@@ -122,6 +122,9 @@ export default function PackageModal({
                 name="name"
                 type="text"
                 className={inputClass}
+                onChange={() => {
+                  if (errors.name) setErrors(prev => ({ ...prev, name: undefined }));
+                }}
               />
               {errors.name && (
                 <p className="text-red-500 text-xs mt-1">{errors.name}</p>
@@ -136,6 +139,9 @@ export default function PackageModal({
                 name="email"
                 type="email"
                 className={inputClass}
+                onChange={() => {
+                  if (errors.email) setErrors(prev => ({ ...prev, email: undefined }));
+                }}
               />
               {errors.email && (
                 <p className="text-red-500 text-xs mt-1">{errors.email}</p>

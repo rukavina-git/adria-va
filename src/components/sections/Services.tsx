@@ -95,7 +95,7 @@ export default function Services({
 
               {item.details && item.details.length > 0 && (
                 <div
-                  className={`grid transition-all duration-300 ${
+                  className={`grid overflow-hidden transition-all duration-300 ${
                     isOpen ? "grid-rows-[1fr]" : "grid-rows-[0fr]"
                   }`}
                 >
