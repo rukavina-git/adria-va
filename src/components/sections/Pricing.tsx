@@ -140,7 +140,8 @@ export default function Pricing({ pricing }: { pricing: Content["pricing"] }) {
       : "max-w-[860px] md:grid-cols-3";
 
   return (
-    <section id="cjenik" className="bg-white px-6 py-16 md:px-12 md:py-18">
+    <section id="cjenik" className="bg-white py-16 md:py-18">
+      <div className="mx-auto w-full max-w-5xl px-6 md:px-12">
       <SectionLabel>{pricing.label}</SectionLabel>
       <h2 className="mb-8 text-[28px] font-normal leading-[1.2] tracking-[-0.01em] text-ink">
         {pricing.title}
@@ -180,6 +181,7 @@ export default function Pricing({ pricing }: { pricing: Content["pricing"] }) {
           onClose={() => setSelectedPackage(null)}
         />
       )}
+      </div>
     </section>
   );
 }

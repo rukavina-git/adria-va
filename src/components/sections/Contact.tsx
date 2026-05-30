@@ -42,7 +42,8 @@ export default function Contact({ contact }: { contact: Content["contact"] }) {
   }
 
   return (
-    <section id="kontakt" className="bg-surface px-6 py-16 md:px-12 md:py-18">
+    <section id="kontakt" className="bg-surface py-16 md:py-18">
+      <div className="mx-auto w-full max-w-5xl px-6 md:px-12">
       <SectionLabel>{contact.label}</SectionLabel>
       <h2 className="mb-10 text-[28px] font-normal leading-[1.2] tracking-[-0.01em] text-ink">
         {contact.titleLead}
@@ -143,6 +144,7 @@ export default function Contact({ contact }: { contact: Content["contact"] }) {
             <p className="text-[13px] font-medium text-red-600">{form.error}</p>
           )}
         </form>
+      </div>
       </div>
     </section>
   );

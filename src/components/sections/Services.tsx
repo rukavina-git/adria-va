@@ -41,7 +41,8 @@ export default function Services({
   }
 
   return (
-    <section id="usluge" className="bg-white px-6 py-16 md:px-12 md:py-18">
+    <section id="usluge" className="bg-white py-16 md:py-18">
+      <div className="mx-auto w-full max-w-5xl px-6 md:px-12">
       <SectionLabel>{services.label}</SectionLabel>
       <h2 className="mb-10 text-[28px] font-normal leading-[1.2] tracking-[-0.01em] text-ink">
         {services.title}
@@ -100,10 +101,10 @@ export default function Services({
                 >
                   <div className="overflow-hidden">
                     <div className="ml-[3.75rem] mt-4 border-t border-line pt-4">
-                      <ul className="grid grid-cols-2 gap-x-8 gap-y-2">
+                      <ul className="list-none">
                         {item.details.map((point) => (
-                          <li key={point} className="flex items-start gap-2 text-sm text-gray-600">
-                            <span className="mt-[3px] flex-shrink-0 text-[10px] leading-none text-brand">—</span>
+                          <li key={point} className="flex items-start gap-2 py-0.5 text-sm text-gray-600">
+                            <span className="mt-1.5 inline-block h-1.5 w-1.5 flex-shrink-0 rounded-full bg-brand" />
                             <span>{point}</span>
                           </li>
                         ))}
@@ -124,6 +125,7 @@ export default function Services({
             </div>
           );
         })}
+      </div>
       </div>
     </section>
   );
