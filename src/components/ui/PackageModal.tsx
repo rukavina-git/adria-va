@@ -26,6 +26,7 @@ export default function PackageModal({
   const [status, setStatus] = useState<Status>("idle");
   const [errors, setErrors] = useState<{ name?: string; email?: string }>({});
   const { executeRecaptcha } = useGoogleReCaptcha();
+  const hasErrors = Object.values(errors).some(Boolean);
 
   async function handleSubmit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
@@ -112,7 +113,7 @@ export default function PackageModal({
             ✓ Upit je uspješno poslan. Javit ćemo vam se u roku od 24 sata.
           </p>
         ) : (
-          <form onSubmit={handleSubmit} className="mt-6 flex flex-col gap-3.5">
+          <form noValidate onSubmit={handleSubmit} className="mt-6 flex flex-col gap-3.5">
             <div className="flex flex-col gap-1.5">
               <label htmlFor="modal-name" className={labelClass}>
                 Ime i prezime
@@ -184,7 +185,8 @@ export default function PackageModal({
             </div>
             <button
               type="submit"
-              disabled={status === "sending"}
+              disabled={hasErrors || status === "sending"}
+              title={hasErrors ? "Molimo ispravite označena polja" : undefined}
               className="mt-1 w-full rounded-md bg-brand px-7 py-3 text-[13px] font-medium tracking-[0.02em] text-white transition hover:bg-brand-dark disabled:cursor-not-allowed disabled:opacity-60"
             >
               {status === "sending" ? "Slanje..." : "Pošaljite upit"}

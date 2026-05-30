@@ -20,6 +20,7 @@ export default function Contact({ contact }: { contact: Content["contact"] }) {
   const { executeRecaptcha } = useGoogleReCaptcha();
   const form = contact.form;
   const errorMessages = contact.errors;
+  const hasErrors = Object.values(errors).some(Boolean);
 
   async function handleSubmit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
@@ -119,7 +120,7 @@ export default function Contact({ contact }: { contact: Content["contact"] }) {
           </div>
         </div>
 
-        <form className="flex flex-col gap-3.5" onSubmit={handleSubmit}>
+        <form noValidate className="flex flex-col gap-3.5" onSubmit={handleSubmit}>
           <div className="grid grid-cols-1 gap-3.5 sm:grid-cols-2">
             <div className="flex flex-col gap-1.5">
               <label htmlFor="name" className={labelClass}>
@@ -183,7 +184,8 @@ export default function Contact({ contact }: { contact: Content["contact"] }) {
           </div>
           <button
             type="submit"
-            disabled={status === "sending"}
+            disabled={hasErrors || status === "sending"}
+            title={hasErrors ? "Molimo ispravite označena polja" : undefined}
             className="self-start rounded-md bg-brand px-7 py-3 text-[13px] font-medium tracking-[0.02em] text-white transition hover:bg-brand-dark disabled:cursor-not-allowed disabled:opacity-60"
           >
             {status === "sending" ? form.sending : form.submit}
