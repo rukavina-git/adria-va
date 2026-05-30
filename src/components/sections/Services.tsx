@@ -2,8 +2,7 @@
 
 import { useState, type ReactNode } from "react";
 import SectionLabel from "@/components/ui/SectionLabel";
-import ServiceDetailModal from "@/components/ui/ServiceDetailModal";
-import type { Content, ServiceItem } from "@/lib/content";
+import type { Content } from "@/lib/content";
 
 const icons: Record<string, ReactNode> = {
   social: (
@@ -35,7 +34,11 @@ export default function Services({
 }: {
   services: Content["services"];
 }) {
-  const [activeService, setActiveService] = useState<ServiceItem | null>(null);
+  const [openTitle, setOpenTitle] = useState<string | null>(null);
+
+  function toggle(title: string) {
+    setOpenTitle((prev) => (prev === title ? null : title));
+  }
 
   return (
     <section id="usluge" className="bg-white px-6 py-16 md:px-12 md:py-18">
@@ -44,55 +47,79 @@ export default function Services({
         {services.title}
       </h2>
       <div className="divide-y divide-line overflow-hidden rounded-xl border border-line">
-        {services.items.map((item) => (
-          <div
-            key={item.title}
-            className="flex items-start gap-5 px-7 py-6 transition hover:bg-brand-light"
-          >
-            <div className="mt-0.5 flex h-10 w-10 flex-shrink-0 items-center justify-center rounded-lg bg-brand-light">
-              <svg
-                viewBox="0 0 24 24"
-                className="h-[18px] w-[18px] text-brand"
-                fill="none"
-                stroke="currentColor"
-                strokeWidth={1.5}
-                strokeLinecap="round"
-                strokeLinejoin="round"
-              >
-                {icons[item.icon]}
-              </svg>
-            </div>
-            <div className="flex-1">
-              <p className="mb-1 text-[15px] font-medium text-ink">
-                {item.title}
-              </p>
-              <p className="text-[13px] leading-[1.6] text-muted">
-                {item.description}
-              </p>
-              {item.details && (
-                <div className="mt-3 flex justify-end">
-                  <button
-                    type="button"
-                    onClick={() => setActiveService(item)}
-                    className="text-[12px] font-medium text-brand transition-colors duration-200 hover:text-brand-dark"
+        {services.items.map((item) => {
+          const isOpen = openTitle === item.title;
+          return (
+            <div
+              key={item.title}
+              onClick={() => toggle(item.title)}
+              className="cursor-pointer border-l-2 border-l-transparent px-7 py-6 transition-colors duration-200 hover:border-l-brand/30 hover:bg-gray-50"
+            >
+              <div className="flex items-start gap-5">
+                <div className="mt-0.5 flex h-10 w-10 flex-shrink-0 items-center justify-center rounded-lg bg-brand-light">
+                  <svg
+                    viewBox="0 0 24 24"
+                    className="h-[18px] w-[18px] text-brand"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth={1.5}
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
                   >
-                    {services.learnMore}
-                  </button>
+                    {icons[item.icon]}
+                  </svg>
+                </div>
+                <div className="flex-1">
+                  <p className="mb-1 text-[15px] font-medium text-ink">
+                    {item.title}
+                  </p>
+                  <p className="text-[13px] leading-[1.6] text-muted">
+                    {item.description}
+                  </p>
+                </div>
+                <svg
+                  viewBox="0 0 24 24"
+                  className={`mt-1 h-4 w-4 flex-shrink-0 text-muted transition-transform duration-200 ${
+                    isOpen ? "rotate-180" : ""
+                  }`}
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth={2}
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                >
+                  <polyline points="6 9 12 15 18 9" />
+                </svg>
+              </div>
+
+              {item.details && (
+                <div
+                  className={`grid transition-all duration-300 ${
+                    isOpen ? "grid-rows-[1fr]" : "grid-rows-[0fr]"
+                  }`}
+                >
+                  <div className="overflow-hidden">
+                    <div className="ml-[3.75rem] mt-4 border-t border-line pt-4">
+                      <p className="text-[13px] leading-[1.8] text-muted">
+                        {item.details}
+                      </p>
+                      <div className="mt-4 flex justify-end">
+                        <a
+                          href="#cjenik"
+                          onClick={(e) => e.stopPropagation()}
+                          className="text-[12px] font-medium text-brand transition-colors duration-200 hover:text-brand-dark"
+                        >
+                          {services.viewPricing}
+                        </a>
+                      </div>
+                    </div>
+                  </div>
                 </div>
               )}
             </div>
-          </div>
-        ))}
+          );
+        })}
       </div>
-
-      {activeService && (
-        <ServiceDetailModal
-          title={activeService.title}
-          details={activeService.details ?? ""}
-          viewPricingCta={services.viewPricing}
-          onClose={() => setActiveService(null)}
-        />
-      )}
     </section>
   );
 }

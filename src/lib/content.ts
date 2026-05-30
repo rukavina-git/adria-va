@@ -50,7 +50,6 @@ export interface Content {
     ctaSecondary: string;
   };
   services: { label: string; title: string; learnMore: string; viewPricing: string; items: ServiceItem[] };
-  discountBanner: { label: string; title: string; subtitle: string; cta: string };
   about: { label: string; title: string; paragraphs: string[] };
   pricing: { label: string; title: string; tabs: PricingTab[] };
   contact: {

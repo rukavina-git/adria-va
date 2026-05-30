@@ -38,12 +38,6 @@
       }
     ]
   },
-  "discountBanner": {
-    "label": "SPECIAL OFFER",
-    "title": "Get a discount for long-term collaboration and combining services",
-    "subtitle": "Contact us for a customised offer tailored to your business.",
-    "cta": "Request a quote"
-  },
   "about": {
     "label": "About",
     "title": "Why Adria VA?",
@@ -209,6 +203,6 @@
   },
   "footer": {
     "copy": "© 2026 Adria VA — Virtual assistance business · Split",
-    "legal": "Obrt Adria VA – za virtualnu asistenciju · Vlasnik: Ana Marija Rukavina · Česvinica · Obveznik nije u sustavu PDV-a temeljem čl. 90 st. 1 i st. 2 Zakona o PDV-u (NN br. 73/13)"
+    "legal": "Adria VA Sole Proprietorship – Virtual Assistant Services · Owner: Ana Marija Rukavina · Česvinica, Croatia · Not subject to VAT pursuant to Art. 90 para. 1 and 2 of the VAT Act (Official Gazette No. 73/13)"
   }
 }
