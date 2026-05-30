@@ -122,8 +122,12 @@ export default function PackageModal({
                 name="name"
                 type="text"
                 className={inputClass}
-                onChange={() => {
-                  if (errors.name) setErrors(prev => ({ ...prev, name: undefined }));
+                onBlur={(e) => {
+                  const error = !e.target.value.trim() ? "Ime i prezime je obavezno polje." : undefined;
+                  if (error) setErrors(prev => ({ ...prev, name: error }));
+                }}
+                onChange={(e) => {
+                  if (errors.name && e.target.value.trim()) setErrors(prev => ({ ...prev, name: undefined }));
                 }}
               />
               {errors.name && (
@@ -139,8 +143,16 @@ export default function PackageModal({
                 name="email"
                 type="email"
                 className={inputClass}
-                onChange={() => {
-                  if (errors.email) setErrors(prev => ({ ...prev, email: undefined }));
+                onBlur={(e) => {
+                  const v = e.target.value.trim();
+                  const error = !v ? "E-mail adresa je obavezna." : !EMAIL_REGEX.test(v) ? "Unesite ispravnu e-mail adresu." : undefined;
+                  if (error) setErrors(prev => ({ ...prev, email: error }));
+                }}
+                onChange={(e) => {
+                  if (errors.email) {
+                    const v = e.target.value.trim();
+                    if (v && EMAIL_REGEX.test(v)) setErrors(prev => ({ ...prev, email: undefined }));
+                  }
                 }}
               />
               {errors.email && (

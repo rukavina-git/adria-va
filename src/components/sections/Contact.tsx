@@ -131,8 +131,12 @@ export default function Contact({ contact }: { contact: Content["contact"] }) {
                 type="text"
                 placeholder={form.namePlaceholder}
                 className={inputClass}
-                onChange={() => {
-                  if (errors.name) setErrors(prev => ({ ...prev, name: undefined }));
+                onBlur={(e) => {
+                  const error = !e.target.value.trim() ? errorMessages.nameRequired : undefined;
+                  if (error) setErrors(prev => ({ ...prev, name: error }));
+                }}
+                onChange={(e) => {
+                  if (errors.name && e.target.value.trim()) setErrors(prev => ({ ...prev, name: undefined }));
                 }}
               />
               {errors.name && (
@@ -149,8 +153,16 @@ export default function Contact({ contact }: { contact: Content["contact"] }) {
                 type="email"
                 placeholder={form.emailPlaceholder}
                 className={inputClass}
-                onChange={() => {
-                  if (errors.email) setErrors(prev => ({ ...prev, email: undefined }));
+                onBlur={(e) => {
+                  const v = e.target.value.trim();
+                  const error = !v ? errorMessages.emailRequired : !EMAIL_REGEX.test(v) ? errorMessages.emailInvalid : undefined;
+                  if (error) setErrors(prev => ({ ...prev, email: error }));
+                }}
+                onChange={(e) => {
+                  if (errors.email) {
+                    const v = e.target.value.trim();
+                    if (v && EMAIL_REGEX.test(v)) setErrors(prev => ({ ...prev, email: undefined }));
+                  }
                 }}
               />
               {errors.email && (
