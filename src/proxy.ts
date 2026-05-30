@@ -9,7 +9,7 @@ const HR_COUNTRIES = ["HR", "BA", "RS", "SI", "ME", "MK", "XK"];
 
 export default function middleware(request: NextRequest) {
   if (request.nextUrl.pathname === "/") {
-    const country = request.geo?.country;
+    const country = (request as any).geo?.country as string | undefined;
     const acceptLanguage = request.headers.get("accept-language") ?? "";
     const langs = acceptLanguage
       .split(",")
