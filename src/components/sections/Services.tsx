@@ -43,7 +43,7 @@ export default function Services({
   return (
     <section id="usluge" className="bg-white px-6 py-16 md:px-12 md:py-18">
       <SectionLabel>{services.label}</SectionLabel>
-      <h2 className="mb-10 max-w-[420px] text-[28px] font-normal leading-[1.2] tracking-[-0.01em] text-ink">
+      <h2 className="mb-10 text-[28px] font-normal leading-[1.2] tracking-[-0.01em] text-ink">
         {services.title}
       </h2>
       <div className="divide-y divide-line overflow-hidden rounded-xl border border-line">
@@ -92,7 +92,7 @@ export default function Services({
                 </svg>
               </div>
 
-              {item.details && (
+              {item.details && item.details.length > 0 && (
                 <div
                   className={`grid transition-all duration-300 ${
                     isOpen ? "grid-rows-[1fr]" : "grid-rows-[0fr]"
@@ -100,9 +100,14 @@ export default function Services({
                 >
                   <div className="overflow-hidden">
                     <div className="ml-[3.75rem] mt-4 border-t border-line pt-4">
-                      <p className="text-[13px] leading-[1.8] text-muted">
-                        {item.details}
-                      </p>
+                      <ul className="grid grid-cols-2 gap-x-8 gap-y-2">
+                        {item.details.map((point) => (
+                          <li key={point} className="flex items-start gap-2 text-sm text-gray-600">
+                            <span className="mt-[3px] flex-shrink-0 text-[10px] leading-none text-brand">—</span>
+                            <span>{point}</span>
+                          </li>
+                        ))}
+                      </ul>
                       <div className="mt-4 flex justify-end">
                         <a
                           href="#cjenik"

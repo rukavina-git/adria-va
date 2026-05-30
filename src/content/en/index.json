@@ -22,19 +22,42 @@
         "icon": "social",
         "title": "Social media",
         "description": "Content creation, post scheduling, profile management, advertising on Facebook and Instagram, analytics and reporting.",
-        "details": "We cover all aspects of your social media presence — from strategy and content creation to profile management and advertising. We create graphics and video content (Reels, Stories, photo posts), schedule posts in advance, respond to comments and reviews, and track results through detailed monthly reports. We work on Facebook, Instagram, TikTok and Google Ads."
+        "details": [
+          "Creating graphics and video content (Reels, Stories, photo posts)",
+          "Planning and scheduling posts in advance",
+          "Profile management on Facebook, Instagram, TikTok",
+          "Responding to comments and reviews",
+          "Managing paid ads and campaigns (Google Ads, Meta Ads)",
+          "Detailed monthly reports and analytics"
+        ]
       },
       {
         "icon": "ledger",
         "title": "Bookkeeping",
         "description": "Basic bookkeeping support, issuing and tracking invoices, expense records, VAT filings and preparing documentation for your accountant.",
-        "details": "We provide basic bookkeeping support tailored to the needs of small business owners and sole traders. We record incoming and outgoing invoices, track payments and collections, calculate VAT and submit VAT returns, maintain employee records, process payroll and submit JOPPD forms. We prepare everything neatly and on time so your accountant or the Tax Administration always has everything they need."
+        "details": [
+          "Recording incoming and outgoing invoices",
+          "VAT calculation and filing VAT returns",
+          "Reconciling customer and supplier balances",
+          "Payroll processing and employee record-keeping",
+          "Preparing and submitting JOPPD forms",
+          "Sick leave, holiday and absence records",
+          "Preparing documentation for your accountant or the Tax Administration"
+        ]
       },
       {
         "icon": "admin",
         "title": "Administration",
         "description": "Email and calendar management, document preparation, registration of foreign workers, travel planning and coordination of business processes.",
-        "details": "We take over all administrative tasks that take up your time — email and calendar management, document archiving and organisation, data entry and processing, preparing and sending invoices, responding to customer enquiries. We also specialise in registering and deregistering foreign workers (HZMO, HZZO, MUP) and coordinating booked groups for hospitality businesses."
+        "details": [
+          "Email and calendar management",
+          "Document archiving and organisation",
+          "Data entry and processing, report preparation",
+          "Registering and deregistering foreign workers (HZMO, HZZO, MUP)",
+          "Responding to customer enquiries and sending reminders",
+          "Coordinating and organising booked groups (hospitality)",
+          "Organising business travel and meetings"
+        ]
       }
     ]
   },

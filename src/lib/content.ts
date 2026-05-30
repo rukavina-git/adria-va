@@ -6,7 +6,7 @@ export interface ServiceItem {
   icon: string;
   title: string;
   description: string;
-  details?: string;
+  details?: string[];
 }
 
 export interface PricingCard {

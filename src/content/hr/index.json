@@ -22,19 +22,42 @@
         "icon": "social",
         "title": "Društvene mreže",
         "description": "Kreiranje sadržaja, planiranje objava, upravljanje profilima, oglašavanje na Facebook i Instagram platformama, analitika i izvještavanje.",
-        "details": "Pokrivamo sve aspekte vaše prisutnosti na društvenim mrežama — od strategije i kreiranja sadržaja do upravljanja profilima i oglašavanja. Izrađujemo grafike i video sadržaj (Reels, Stories, foto-objave), planiramo objave unaprijed, odgovaramo na komentare i recenzije te pratimo rezultate kroz detaljne mjesečne izvještaje. Radimo na platformama Facebook, Instagram, TikTok i Google Ads."
+        "details": [
+          "Kreiranje grafika i video sadržaja (Reels, Stories, foto-objave)",
+          "Planiranje i raspoređivanje objava unaprijed",
+          "Upravljanje profilima na Facebook, Instagram, TikTok",
+          "Odgovaranje na komentare i recenzije",
+          "Upravljanje plaćenim oglasima i kampanjama (Google Ads, Meta Ads)",
+          "Detaljni mjesečni izvještaji i analitika"
+        ]
       },
       {
         "icon": "ledger",
         "title": "Knjigovodstvo",
         "description": "Osnovna knjigovodstvena podrška, izdavanje i praćenje računa, evidencija troškova, PDV prijave i priprema dokumentacije za knjigovođu.",
-        "details": "Pružamo osnovnu knjigovodstvenu podršku prilagođenu potrebama malih poduzetnika i obrta. Knjižimo ulazne i izlazne račune, pratimo plaćanja i naplate, obračunavamo PDV i podnosimo PDV prijave, vodimo evidenciju zaposlenika, obračunavamo plaće i podnosimo JOPPD obrasce. Sve pripremamo uredno i na vrijeme kako bi vaš knjigovođa ili Porezna uprava uvijek imali sve što trebaju."
+        "details": [
+          "Knjiženje ulaznih i izlaznih računa",
+          "Obračun PDV-a i podnošenje PDV prijava",
+          "Kontrola i usklađivanje salda kupaca i dobavljača",
+          "Obračun plaća i vođenje evidencije zaposlenika",
+          "Priprema i podnošenje JOPPD obrazaca",
+          "Evidencija bolovanja, godišnjih odmora i odsutnosti",
+          "Priprema dokumentacije za knjigovođu ili Poreznu upravu"
+        ]
       },
       {
         "icon": "admin",
         "title": "Administracija",
         "description": "Upravljanje e-mailom i kalendarom, priprema dokumentacije, prijave stranih radnika, organizacija putovanja i koordinacija poslovnih procesa.",
-        "details": "Preuzimamo sve administrativne zadatke koji vam oduzimaju vrijeme — upravljanje e-mailovima i kalendarom, arhiviranje i organizacija dokumenata, unos i obrada podataka, priprema i slanje računa, odgovaranje na upite kupaca. Specijalizirali smo se i za prijave i odjave stranih radnika (HZMO, HZZO, MUP) te koordinaciju najavljenih grupa za ugostiteljske objekte."
+        "details": [
+          "Upravljanje e-mailovima i kalendarom",
+          "Arhiviranje i organizacija dokumenata",
+          "Unos i obrada podataka, priprema izvještaja",
+          "Prijava i odjava stranih radnika (HZMO, HZZO, MUP)",
+          "Odgovaranje na upite kupaca i slanje podsjetnika",
+          "Koordinacija i organizacija najavljenih grupa (ugostiteljstvo)",
+          "Organizacija poslovnih putovanja i sastanaka"
+        ]
       }
     ]
   },
