@@ -226,6 +226,7 @@
   },
   "footer": {
     "copy": "© 2026 Adria VA — Obrt za virtualnu asistenciju · Split",
-    "legal": "Obrt Adria VA – za virtualnu asistenciju · Vlasnik: Ana Marija Rukavina · Česvinica · Obveznik nije u sustavu PDV-a temeljem čl. 90 st. 1 i st. 2 Zakona o PDV-u (NN br. 73/13)"
+    "legal": "Obrt Adria VA – za virtualnu asistenciju · Vlasnik: Ana Marija Rukavina · Česvinica · Obveznik nije u sustavu PDV-a temeljem čl. 90 st. 1 i st. 2 Zakona o PDV-u (NN br. 73/13)",
+    "recaptcha": "Ova stranica je zaštićena reCAPTCHA sustavom. Primjenjuju se Googleova <a href=\"https://policies.google.com/privacy\">Pravila privatnosti</a> i <a href=\"https://policies.google.com/terms\">Uvjeti korištenja</a>."
   }
 }

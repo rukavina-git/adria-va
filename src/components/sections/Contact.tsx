@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, type FormEvent } from "react";
+import { useGoogleReCaptcha } from "react-google-recaptcha-v3";
 import SectionLabel from "@/components/ui/SectionLabel";
 import type { Content } from "@/lib/content";
 
@@ -13,6 +14,7 @@ const labelClass =
 
 export default function Contact({ contact }: { contact: Content["contact"] }) {
   const [status, setStatus] = useState<Status>("idle");
+  const { executeRecaptcha } = useGoogleReCaptcha();
   const form = contact.form;
 
   async function handleSubmit(event: FormEvent<HTMLFormElement>) {
@@ -22,6 +24,10 @@ export default function Contact({ contact }: { contact: Content["contact"] }) {
     setStatus("sending");
 
     try {
+      const recaptchaToken = executeRecaptcha
+        ? await executeRecaptcha("contact_form")
+        : undefined;
+
       const response = await fetch("/api/contact", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
@@ -29,6 +35,7 @@ export default function Contact({ contact }: { contact: Content["contact"] }) {
           name: data.get("name"),
           email: data.get("email"),
           message: data.get("message"),
+          recaptchaToken,
         }),
       });
 

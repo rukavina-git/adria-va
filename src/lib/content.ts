@@ -62,7 +62,7 @@ export interface Content {
     email: string;
     form: ContactForm;
   };
-  footer: { copy: string; legal: string };
+  footer: { copy: string; legal: string; recaptcha: string };
 }
 
 const content: Record<Locale, Content> = {

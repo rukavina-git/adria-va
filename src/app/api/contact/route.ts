@@ -10,6 +10,7 @@ export async function POST(request: Request) {
     phone?: string;
     message?: string;
     packageName?: string;
+    recaptchaToken?: string;
   };
   try {
     body = await request.json();
@@ -22,6 +23,25 @@ export async function POST(request: Request) {
   const phone = body.phone?.trim();
   const message = body.message?.trim();
   const packageName = body.packageName?.trim();
+  const recaptchaToken = body.recaptchaToken;
+
+  if (recaptchaToken) {
+    const secret = process.env.RECAPTCHA_SECRET_KEY;
+    if (secret) {
+      const verification = await fetch(
+        "https://www.google.com/recaptcha/api/siteverify",
+        {
+          method: "POST",
+          headers: { "Content-Type": "application/x-www-form-urlencoded" },
+          body: `secret=${secret}&response=${recaptchaToken}`,
+        },
+      );
+      const result = (await verification.json()) as { success: boolean; score: number };
+      if (!result.success || result.score < 0.5) {
+        return NextResponse.json({ error: "Verification failed" }, { status: 400 });
+      }
+    }
+  }
 
   if (!name || !email) {
     return NextResponse.json(
@@ -50,11 +70,11 @@ export async function POST(request: Request) {
 
   const subject = packageName
     ? `Novi upit — ${packageName}`
-    : "Novi upit s web stranice";
+    : "Nova poruka s web stranice";
 
   try {
     const { error } = await resend.emails.send({
-      from: CONTACT_FROM,
+      from: "adriava@rukavina.app",
       to: CONTACT_TO,
       replyTo: email,
       subject,

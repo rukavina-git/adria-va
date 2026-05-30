@@ -1,4 +1,12 @@
-export default function Footer({ copy, legal }: { copy: string; legal: string }) {
+export default function Footer({
+  copy,
+  legal,
+  recaptcha,
+}: {
+  copy: string;
+  legal: string;
+  recaptcha: string;
+}) {
   return (
     <footer className="bg-brand-dark py-8">
       <div className="mx-auto w-full max-w-5xl px-6 md:px-12">
@@ -10,6 +18,10 @@ export default function Footer({ copy, legal }: { copy: string; legal: string })
         </div>
         <div className="mt-6 border-t border-white/10 pt-4">
           <p className="text-xs text-white/30">{legal}</p>
+          <p
+            className="mt-2 text-xs text-white/30 [&_a]:text-white/40 [&_a]:underline [&_a]:hover:text-white/60"
+            dangerouslySetInnerHTML={{ __html: recaptcha }}
+          />
         </div>
       </div>
     </footer>

@@ -35,3 +35,5 @@ section[id] {
 .animate-kenburns {
   animation: kenburns 20s ease-in-out infinite;
 }
+
+.grecaptcha-badge { visibility: hidden !important; }

@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, type FormEvent } from "react";
+import { useGoogleReCaptcha } from "react-google-recaptcha-v3";
 
 interface PackageModalProps {
   packageName: string;
@@ -21,6 +22,7 @@ export default function PackageModal({
   onClose,
 }: PackageModalProps) {
   const [status, setStatus] = useState<Status>("idle");
+  const { executeRecaptcha } = useGoogleReCaptcha();
 
   async function handleSubmit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
@@ -28,6 +30,10 @@ export default function PackageModal({
     setStatus("sending");
 
     try {
+      const recaptchaToken = executeRecaptcha
+        ? await executeRecaptcha("package_inquiry")
+        : undefined;
+
       const response = await fetch("/api/contact", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
@@ -37,6 +43,7 @@ export default function PackageModal({
           phone: data.get("phone"),
           message: data.get("message"),
           packageName,
+          recaptchaToken,
         }),
       });
 

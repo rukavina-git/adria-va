@@ -7,7 +7,7 @@ const apiKey = process.env.RESEND_API_KEY;
 export const resend = apiKey ? new Resend(apiKey) : null;
 
 // Inbox that receives contact submissions.
-export const CONTACT_TO = "info@adria-va.hr";
+export const CONTACT_TO = "adriava@rukavina.app";
 
 // Verified sender. Defaults to Resend's shared test sender so the form works
 // before a custom domain is verified; override with RESEND_FROM in production.
