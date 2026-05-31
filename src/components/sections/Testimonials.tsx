@@ -46,13 +46,13 @@ function TestimonialCard({
   item: { quote: string; author: string; detail: string; avatar: string };
 }) {
   return (
-    <div className="relative rounded-xl border border-gray-100 bg-white p-6 shadow-sm transition-all duration-200 hover:border-brand/30 hover:shadow-md">
+    <div className="relative flex flex-col rounded-xl border border-gray-100 bg-white p-6 shadow-sm transition-all duration-200 hover:border-brand/30 hover:shadow-md">
       <div className="absolute left-4 top-2 font-serif text-6xl leading-none text-accent opacity-20">
         "
       </div>
       <div className="mb-3 text-sm text-accent">★★★★★</div>
-      <p className="text-sm italic leading-relaxed text-gray-600">{item.quote}</p>
-      <div className="mt-4 border-t border-gray-100 pt-4">
+      <p className="flex-1 text-sm italic leading-relaxed text-gray-600">{item.quote}</p>
+      <div className="mt-auto border-t border-gray-100 pt-4">
         <div className="flex items-center gap-3">
           <Image
             src={item.avatar}
