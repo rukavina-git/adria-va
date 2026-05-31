@@ -169,7 +169,7 @@ export default function Pricing({ pricing }: { pricing: Content["pricing"] }) {
         {activeTab.cards.map((card, i) => (
           <motion.div
             key={card.name}
-            className="h-full"
+            className="h-full w-full"
             initial={{ opacity: 0, y: 24 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
