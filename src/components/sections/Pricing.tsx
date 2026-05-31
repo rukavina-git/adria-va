@@ -137,8 +137,8 @@ export default function Pricing({ pricing }: { pricing: Content["pricing"] }) {
 
   const gridClass =
     activeTab.id === "kn"
-      ? "max-w-[860px] sm:grid-cols-2"
-      : "max-w-[860px] md:grid-cols-3";
+      ? "w-full sm:grid-cols-2"
+      : "w-full md:grid-cols-3";
 
   return (
     <section id="cjenik" className="bg-white py-16 md:py-18">
