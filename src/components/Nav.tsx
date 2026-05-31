@@ -1,37 +1,46 @@
 "use client";
 
 import { useState } from "react";
-import Link from "next/link";
 import LocaleSwitcher from "./LocaleSwitcher";
 import type { Content } from "@/lib/content";
 
-export default function Nav({ nav, locale }: { nav: Content["nav"]; locale: string }) {
+function scrollTo(id: string) {
+  const el = document.getElementById(id);
+  if (el) el.scrollIntoView({ behavior: "smooth" });
+}
+
+export default function Nav({ nav, locale: _locale }: { nav: Content["nav"]; locale: string }) {
   const [isOpen, setIsOpen] = useState(false);
 
   const links = [
-    { href: "#usluge", label: nav.services },
-    { href: "#o-meni", label: nav.about },
-    { href: "#cjenik", label: nav.pricing },
-    { href: "#kontakt", label: nav.contact },
+    { id: "usluge", label: nav.services },
+    { id: "o-meni", label: nav.about },
+    { id: "cjenik", label: nav.pricing },
+    { id: "kontakt", label: nav.contact },
   ];
 
   return (
     <nav className="sticky top-0 z-50 h-20 border-b border-white/10 bg-brand-dark">
       <div className="mx-auto flex h-full w-full max-w-5xl items-center justify-between px-6 md:px-12">
-        <Link href={`/${locale}`} className="text-lg font-medium uppercase tracking-[0.06em] text-white">
+        <button
+          type="button"
+          onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
+          className="text-lg font-medium uppercase tracking-[0.06em] text-white"
+        >
           Adria <span className="font-semibold text-accent">VA</span>
-        </Link>
+        </button>
 
         <div className="flex items-center gap-4">
           <ul className="hidden items-center gap-8 md:flex">
             {links.map((link) => (
-              <li key={link.href}>
-                <a
-                  href={link.href}
+              <li key={link.id}>
+                <button
+                  type="button"
+                  onClick={() => scrollTo(link.id)}
                   className="text-sm tracking-[0.02em] text-white transition-colors duration-200 hover:text-accent"
                 >
                   {link.label}
-                </a>
+                </button>
               </li>
             ))}
           </ul>
@@ -61,14 +70,14 @@ export default function Nav({ nav, locale }: { nav: Content["nav"]; locale: stri
       {isOpen && (
         <div className="fixed left-0 right-0 top-20 z-40 flex flex-col bg-brand-dark py-4 md:hidden">
           {links.map((link) => (
-            <a
-              key={link.href}
-              href={link.href}
-              onClick={() => setIsOpen(false)}
+            <button
+              key={link.id}
+              type="button"
+              onClick={() => { scrollTo(link.id); setIsOpen(false); }}
               className="block px-6 py-3 text-base text-white/80 transition-colors hover:bg-white/5 hover:text-white"
             >
               {link.label}
-            </a>
+            </button>
           ))}
           <div className="px-6 py-3">
             <LocaleSwitcher />
