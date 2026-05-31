@@ -16,7 +16,7 @@ const dmSans = DM_Sans({
   display: "swap",
 });
 
-const BASE_URL = "https://adria-va.com";
+const BASE_URL = "https://adriava.rukavina.app";
 
 const meta = {
   hr: {

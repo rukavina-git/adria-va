@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import { motion } from "framer-motion";
 import SectionLabel from "@/components/ui/SectionLabel";
 import PackageModal from "@/components/ui/PackageModal";
 import type { Content, PricingCard as PricingCardType } from "@/lib/content";
@@ -165,12 +166,16 @@ export default function Pricing({ pricing }: { pricing: Content["pricing"] }) {
       </div>
 
       <div className={`grid grid-cols-1 gap-4 ${gridClass}`}>
-        {activeTab.cards.map((card) => (
-          <PricingCard
+        {activeTab.cards.map((card, i) => (
+          <motion.div
             key={card.name}
-            card={card}
-            onSelect={setSelectedPackage}
-          />
+            initial={{ opacity: 0, y: 24 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.4, ease: "easeOut", delay: i * 0.1 }}
+          >
+            <PricingCard card={card} onSelect={setSelectedPackage} />
+          </motion.div>
         ))}
       </div>
 

@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, type FormEvent } from "react";
+import { motion } from "framer-motion";
 import { useGoogleReCaptcha } from "react-google-recaptcha-v3";
 import SectionLabel from "@/components/ui/SectionLabel";
 import type { Content } from "@/lib/content";
@@ -81,7 +82,12 @@ export default function Contact({ contact }: { contact: Content["contact"] }) {
       </h2>
 
       <div className="grid max-w-[860px] grid-cols-1 items-start gap-12 md:grid-cols-[1fr_1.4fr] md:gap-16">
-        <div>
+        <motion.div
+          initial={{ opacity: 0, y: 24 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.4, ease: "easeOut" }}
+        >
           <h3 className="mb-3 text-[18px] font-normal text-ink">
             {contact.infoHeading}
           </h3>
@@ -122,9 +128,17 @@ export default function Contact({ contact }: { contact: Content["contact"] }) {
                 {contact.email}
               </a>
           </div>
-        </div>
+        </motion.div>
 
-        <form noValidate className="flex flex-col gap-3.5" onSubmit={handleSubmit}>
+        <motion.form
+          noValidate
+          className="flex flex-col gap-3.5"
+          onSubmit={handleSubmit}
+          initial={{ opacity: 0, y: 24 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.4, ease: "easeOut", delay: 0.1 }}
+        >
           <div className="grid grid-cols-1 gap-3.5 sm:grid-cols-2">
             <div className="flex flex-col gap-1.5">
               <label htmlFor="name" className={labelClass}>
@@ -221,7 +235,7 @@ export default function Contact({ contact }: { contact: Content["contact"] }) {
           {status === "error" && (
             <p className="text-[13px] font-medium text-red-600">{form.error}</p>
           )}
-        </form>
+        </motion.form>
       </div>
       </div>
     </section>

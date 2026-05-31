@@ -2,6 +2,7 @@
 
 import Image from "next/image";
 import { useLocale } from "next-intl";
+import { motion } from "framer-motion";
 import SectionLabel from "@/components/ui/SectionLabel";
 import type { Content } from "@/lib/content";
 
@@ -43,7 +44,15 @@ export default function Testimonials({
         {/* Desktop: 3-column grid */}
         <div className="hidden md:grid md:grid-cols-3 md:gap-6">
           {testimonials.items.map((item, i) => (
-            <TestimonialCard key={i} item={item} open={open} close={close} />
+            <motion.div
+              key={i}
+              initial={{ opacity: 0, y: 24 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.4, ease: "easeOut", delay: i * 0.1 }}
+            >
+              <TestimonialCard item={item} open={open} close={close} />
+            </motion.div>
           ))}
         </div>
       </div>

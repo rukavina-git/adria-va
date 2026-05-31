@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, type ReactNode } from "react";
+import { motion } from "framer-motion";
 import SectionLabel from "@/components/ui/SectionLabel";
 import type { Content } from "@/lib/content";
 
@@ -48,11 +49,15 @@ export default function Services({
         {services.title}
       </h2>
       <div className="divide-y divide-line overflow-hidden rounded-xl border border-line">
-        {services.items.map((item) => {
+        {services.items.map((item, i) => {
           const isOpen = openTitle === item.title;
           return (
-            <div
+            <motion.div
               key={item.title}
+              initial={{ opacity: 0, y: 24 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.4, ease: "easeOut", delay: i * 0.1 }}
               onClick={() => toggle(item.title)}
               className="cursor-pointer border-l-2 border-l-transparent px-7 py-6 transition-colors duration-200 hover:border-l-brand/30 hover:bg-gray-50"
             >
@@ -122,7 +127,7 @@ export default function Services({
                   </div>
                 </div>
               )}
-            </div>
+            </motion.div>
           );
         })}
       </div>

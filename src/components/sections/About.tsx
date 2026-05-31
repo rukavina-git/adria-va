@@ -1,6 +1,16 @@
+"use client";
+
 import Image from "next/image";
+import { motion } from "framer-motion";
 import SectionLabel from "@/components/ui/SectionLabel";
 import type { Content } from "@/lib/content";
+
+const fadeUp = {
+  initial: { opacity: 0, y: 24 },
+  whileInView: { opacity: 1, y: 0 },
+  viewport: { once: true },
+  transition: { duration: 0.4, ease: "easeOut" as const },
+};
 
 function InstagramIcon() {
   return (
@@ -19,7 +29,7 @@ export default function About({ about }: { about: Content["about"] }) {
           {about.title}
         </h2>
         <div className="grid grid-cols-1 items-center gap-12 md:grid-cols-2 md:gap-16">
-          <div>
+          <motion.div {...fadeUp}>
             {about.paragraphs.map((paragraph, index) => (
               <p
                 key={index}
@@ -37,9 +47,8 @@ export default function About({ about }: { about: Content["about"] }) {
               <InstagramIcon />
               {about.instagramCta}
             </a>
-          </div>
-          <div className="relative aspect-[4/5] overflow-hidden rounded-xl border border-brand/10 bg-brand-light">
-            {/* TODO: replace with real photo */}
+          </motion.div>
+          <motion.div {...fadeUp} transition={{ duration: 0.4, ease: "easeOut", delay: 0.1 }} className="relative aspect-[4/5] overflow-hidden rounded-xl border border-brand/10 bg-brand-light">
             <Image
               src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=600&q=80"
               alt="Adria VA"
@@ -47,7 +56,7 @@ export default function About({ about }: { about: Content["about"] }) {
               className="object-cover object-top"
               sizes="(max-width: 768px) 100vw, 480px"
             />
-          </div>
+          </motion.div>
         </div>
       </div>
     </section>
