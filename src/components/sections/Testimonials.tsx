@@ -42,10 +42,11 @@ export default function Testimonials({
         </div>
 
         {/* Desktop: 3-column grid */}
-        <div className="hidden md:grid md:grid-cols-3 md:gap-6">
+        <div className="hidden md:grid md:grid-cols-3 md:gap-6 md:items-stretch">
           {testimonials.items.map((item, i) => (
             <motion.div
               key={i}
+              className="h-full"
               initial={{ opacity: 0, y: 24 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
@@ -70,7 +71,7 @@ function TestimonialCard({
   close: string;
 }) {
   return (
-    <div className="relative flex flex-col rounded-xl border border-gray-100 bg-white p-6 shadow-sm transition-all duration-200 hover:border-brand/30 hover:shadow-md">
+    <div className="relative flex h-full flex-col rounded-xl border border-gray-100 bg-white p-6 shadow-sm transition-all duration-200 hover:border-brand/30 hover:shadow-md">
       <div className="mb-3 text-sm text-accent">{"★★★★★"}</div>
       <p className="flex-1 text-sm italic leading-relaxed text-gray-600">{open}{item.quote}{close}</p>
       <div className="mt-auto border-t border-gray-100 pt-4">

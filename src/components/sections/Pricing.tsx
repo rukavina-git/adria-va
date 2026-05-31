@@ -27,7 +27,7 @@ function PricingCard({
 
   return (
     <div
-      className={`relative flex flex-col gap-4 rounded-xl border p-6 transition ${
+      className={`relative flex h-full flex-col gap-4 rounded-xl border p-6 transition ${
         featured
           ? "border-brand bg-brand"
           : "border-line bg-white hover:border-brand"
@@ -117,8 +117,8 @@ function PricingCard({
         onClick={() => onSelect({ name: displayName, price: priceDisplay })}
         className={
           featured
-            ? "block rounded-md py-[9px] text-center text-[12px] font-medium tracking-[0.02em] transition border border-accent bg-accent text-brand-dark hover:border-accent-dark hover:bg-accent-dark"
-            : "border border-brand text-brand hover:bg-brand hover:text-white transition-colors duration-200 rounded-lg py-2 px-4 w-full"
+            ? "mt-auto block rounded-md py-[9px] text-center text-[12px] font-medium tracking-[0.02em] transition border border-accent bg-accent text-brand-dark hover:border-accent-dark hover:bg-accent-dark"
+            : "mt-auto border border-brand text-brand hover:bg-brand hover:text-white transition-colors duration-200 rounded-lg py-2 px-4 w-full"
         }
       >
         {card.cta}
@@ -165,10 +165,11 @@ export default function Pricing({ pricing }: { pricing: Content["pricing"] }) {
         ))}
       </div>
 
-      <div className={`grid grid-cols-1 gap-4 ${gridClass}`}>
+      <div className={`grid grid-cols-1 items-stretch gap-4 ${gridClass}`}>
         {activeTab.cards.map((card, i) => (
           <motion.div
             key={card.name}
+            className="h-full"
             initial={{ opacity: 0, y: 24 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
