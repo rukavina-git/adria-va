@@ -1,12 +1,23 @@
+"use client";
+
 import Image from "next/image";
+import { useLocale } from "next-intl";
 import SectionLabel from "@/components/ui/SectionLabel";
 import type { Content } from "@/lib/content";
+
+const quotes = {
+  hr: { open: "„", close: "”" },
+  en: { open: "“", close: "”" },
+};
 
 export default function Testimonials({
   testimonials,
 }: {
   testimonials: Content["testimonials"];
 }) {
+  const locale = useLocale();
+  const { open, close } = quotes[locale as keyof typeof quotes] ?? quotes.hr;
+
   return (
     <section className="bg-surface py-16 md:py-18">
       <div className="mx-auto w-full max-w-5xl px-6 md:px-12">
@@ -24,7 +35,7 @@ export default function Testimonials({
               className="w-full flex-shrink-0 scroll-snap-align-start"
               style={{ scrollSnapAlign: "start" }}
             >
-              <TestimonialCard item={item} />
+              <TestimonialCard item={item} open={open} close={close} />
             </div>
           ))}
         </div>
@@ -32,7 +43,7 @@ export default function Testimonials({
         {/* Desktop: 3-column grid */}
         <div className="hidden md:grid md:grid-cols-3 md:gap-6">
           {testimonials.items.map((item, i) => (
-            <TestimonialCard key={i} item={item} />
+            <TestimonialCard key={i} item={item} open={open} close={close} />
           ))}
         </div>
       </div>
@@ -42,16 +53,17 @@ export default function Testimonials({
 
 function TestimonialCard({
   item,
+  open,
+  close,
 }: {
   item: { quote: string; author: string; detail: string; avatar: string };
+  open: string;
+  close: string;
 }) {
   return (
     <div className="relative flex flex-col rounded-xl border border-gray-100 bg-white p-6 shadow-sm transition-all duration-200 hover:border-brand/30 hover:shadow-md">
-      <div className="absolute left-4 top-2 font-serif text-6xl leading-none text-accent opacity-20">
-        "
-      </div>
-      <div className="mb-3 text-sm text-accent">★★★★★</div>
-      <p className="flex-1 text-sm italic leading-relaxed text-gray-600">{item.quote}</p>
+      <div className="mb-3 text-sm text-accent">{"★★★★★"}</div>
+      <p className="flex-1 text-sm italic leading-relaxed text-gray-600">{open}{item.quote}{close}</p>
       <div className="mt-auto border-t border-gray-100 pt-4">
         <div className="flex items-center gap-3">
           <Image
