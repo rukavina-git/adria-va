@@ -230,6 +230,30 @@
       "messageRequired": "Poruka ne smije biti prazna."
     }
   },
+  "testimonials": {
+    "label": "RECENZIJE",
+    "title": "Što kažu naši klijenti",
+    "items": [
+      {
+        "quote": "Adria VA preuzela je upravljanje našim društvenim mrežama i za samo dva mjeseca primijetili smo značajan rast angažmana. Profesionalan pristup i uvijek dostupna za komunikaciju.",
+        "author": "Marko H.",
+        "detail": "Vlasnik, ugostiteljski obrt",
+        "avatar": "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=80&q=80"
+      },
+      {
+        "quote": "Konačno netko tko razumije što malom poduzetniku treba. Administrativni poslovi su sjeli na pravo mjesto, a ja se mogu fokusirati na razvoj biznisa.",
+        "author": "Ivana P.",
+        "detail": "Samostalna poduzetnica",
+        "avatar": "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=80&q=80"
+      },
+      {
+        "quote": "Prijava stranih radnika bila je noćna mora dok nisam kontaktirala Adria VA. Sve je odrađeno brzo, točno i bez stresa.",
+        "author": "Tomislav K.",
+        "detail": "Direktor, građevinska tvrtka",
+        "avatar": "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=80&q=80"
+      }
+    ]
+  },
   "cookies": {
     "bannerText": "Koristimo kolačiće kako bismo poboljšali vaše iskustvo. Više o tome u našoj Politici privatnosti.",
     "accept": "Prihvaćam",

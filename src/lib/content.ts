@@ -70,6 +70,11 @@ export interface Content {
     form: ContactForm;
     errors: ContactErrors;
   };
+  testimonials: {
+    label: string;
+    title: string;
+    items: { quote: string; author: string; detail: string; avatar: string }[];
+  };
   footer: { instagram: string; facebook: string; copy: string; legal: string; recaptcha: string };
 }
 

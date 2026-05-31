@@ -9,6 +9,7 @@ import WhatsAppButton from "@/components/WhatsAppButton";
 import Hero from "@/components/sections/Hero";
 import Services from "@/components/sections/Services";
 import About from "@/components/sections/About";
+import Testimonials from "@/components/sections/Testimonials";
 import Pricing from "@/components/sections/Pricing";
 import Contact from "@/components/sections/Contact";
 
@@ -32,6 +33,7 @@ export default async function Home({
         <Services services={content.services} />
         <Pricing pricing={content.pricing} />
         <About about={content.about} />
+        <Testimonials testimonials={content.testimonials} />
         <Contact contact={content.contact} />
       </main>
       <Footer copy={content.footer.copy} legal={content.footer.legal} recaptcha={content.footer.recaptcha} locale={locale} instagram={content.footer.instagram} facebook={content.footer.facebook} />

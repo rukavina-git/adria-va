@@ -230,6 +230,30 @@
       "messageRequired": "Message cannot be empty."
     }
   },
+  "testimonials": {
+    "label": "REVIEWS",
+    "title": "What our clients say",
+    "items": [
+      {
+        "quote": "Adria VA took over the management of our social media and within just two months we noticed a significant increase in engagement. A professional approach and always available for communication.",
+        "author": "Marko H.",
+        "detail": "Owner, hospitality business",
+        "avatar": "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=80&q=80"
+      },
+      {
+        "quote": "Finally someone who understands what a small entrepreneur needs. Administrative tasks fell into place and I can focus on growing the business.",
+        "author": "Ivana P.",
+        "detail": "Sole trader",
+        "avatar": "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=80&q=80"
+      },
+      {
+        "quote": "Registering foreign workers was a nightmare until I contacted Adria VA. Everything was handled quickly, accurately and without stress.",
+        "author": "Tomislav K.",
+        "detail": "Director, construction company",
+        "avatar": "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=80&q=80"
+      }
+    ]
+  },
   "cookies": {
     "bannerText": "We use cookies to improve your experience. Learn more in our Privacy Policy.",
     "accept": "Accept",
