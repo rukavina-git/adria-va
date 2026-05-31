@@ -44,7 +44,7 @@ export async function generateMetadata({
     title,
     description,
     alternates: { canonical: url },
-    icons: { icon: "/logo.jpg" },
+    icons: { icon: "/favicon.svg" },
     openGraph: {
       title,
       description,
