@@ -27,7 +27,7 @@ export default async function Home({
 
   return (
     <>
-      <Nav nav={content.nav} />
+      <Nav nav={content.nav} locale={locale} />
       <main>
         <Hero hero={content.hero} />
         <Services services={content.services} />
