@@ -33,10 +33,10 @@ export default function CookieBanner() {
   const [before, after] = bannerText.split(linkWord);
 
   return (
-    <div className="fixed bottom-0 left-0 right-0 md:bottom-4 md:left-auto md:right-4 md:max-w-sm md:rounded-xl rounded-t-xl bg-brand-dark p-5 shadow-2xl z-50">
-      <p className="mb-4 text-sm text-white/70">
+    <div className="fixed bottom-4 left-1/2 -translate-x-1/2 max-w-md w-full mx-4 rounded-xl bg-white p-5 shadow-xl z-50">
+      <p className="mb-4 text-sm text-gray-700">
         {before}
-        <Link href={`/${locale}/privacy`} className="underline hover:text-white">
+        <Link href={`/${locale}/privacy`} className="text-brand underline">
           {linkWord}
         </Link>
         {after}
@@ -45,14 +45,14 @@ export default function CookieBanner() {
         <button
           type="button"
           onClick={() => handleChoice("declined")}
-          className="rounded-md border border-white/40 px-4 py-2 text-sm text-white transition hover:border-white/70"
+          className="rounded-md border border-gray-300 px-4 py-2 text-sm text-gray-600 transition hover:bg-gray-50"
         >
           {contentMap[locale].cookies.decline}
         </button>
         <button
           type="button"
           onClick={() => handleChoice("accepted")}
-          className="rounded-md bg-accent px-4 py-2 text-sm font-medium text-brand-dark transition hover:bg-accent-dark"
+          className="rounded-md bg-brand px-4 py-2 text-sm font-medium text-white transition hover:bg-brand-dark"
         >
           {contentMap[locale].cookies.accept}
         </button>
