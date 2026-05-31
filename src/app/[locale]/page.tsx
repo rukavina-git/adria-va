@@ -34,7 +34,7 @@ export default async function Home({
         <About about={content.about} />
         <Contact contact={content.contact} />
       </main>
-      <Footer copy={content.footer.copy} legal={content.footer.legal} recaptcha={content.footer.recaptcha} locale={locale} />
+      <Footer copy={content.footer.copy} legal={content.footer.legal} recaptcha={content.footer.recaptcha} locale={locale} instagram={content.footer.instagram} facebook={content.footer.facebook} />
       <WhatsAppButton />
     </>
   );

@@ -16,11 +16,42 @@ const dmSans = DM_Sans({
   display: "swap",
 });
 
-export const metadata: Metadata = {
-  title: "Adria VA — Virtualni asistent | Split, Hrvatska",
-  description:
-    "Delegirajte administrativne, računovodstvene i marketing zadatke. Virtualni asistent za poduzetnike koji žele rasti.",
+const BASE_URL = "https://adria-va.com";
+
+const meta = {
+  hr: {
+    title: "Adria VA — Virtualni asistent za vaše poslovanje",
+    description:
+      "Profesionalna virtualna asistentica za društvene mreže, knjigovodstvo i administraciju. Prilagođeni paketi za poduzetnike. Zatražite ponudu danas.",
+  },
+  en: {
+    title: "Adria VA — Virtual Assistant for Your Business",
+    description:
+      "Professional virtual assistant for social media, bookkeeping and administration. Custom packages for entrepreneurs. Request a quote today.",
+  },
 };
+
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ locale: string }>;
+}): Promise<Metadata> {
+  const { locale } = await params;
+  const { title, description } = meta[locale as keyof typeof meta] ?? meta.hr;
+  const url = `${BASE_URL}/${locale}`;
+
+  return {
+    title,
+    description,
+    alternates: { canonical: url },
+    openGraph: {
+      title,
+      description,
+      url,
+      type: "website",
+    },
+  };
+}
 
 export function generateStaticParams() {
   return routing.locales.map((locale) => ({ locale }));

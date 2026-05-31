@@ -70,7 +70,7 @@ export interface Content {
     form: ContactForm;
     errors: ContactErrors;
   };
-  footer: { copy: string; legal: string; recaptcha: string };
+  footer: { instagram: string; facebook: string; copy: string; legal: string; recaptcha: string };
 }
 
 const content: Record<Locale, Content> = {
