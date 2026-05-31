@@ -14,8 +14,8 @@ export default function Nav({ nav, locale: _locale }: { nav: Content["nav"]; loc
 
   const links = [
     { id: "usluge", label: nav.services },
-    { id: "o-meni", label: nav.about },
     { id: "cjenik", label: nav.pricing },
+    { id: "o-meni", label: nav.about },
     { id: "kontakt", label: nav.contact },
   ];
 
