@@ -57,7 +57,7 @@ export interface Content {
     ctaSecondary: string;
   };
   services: { label: string; title: string; learnMore: string; viewPricing: string; items: ServiceItem[] };
-  about: { label: string; title: string; paragraphs: string[] };
+  about: { label: string; title: string; paragraphs: string[]; instagramUrl: string; instagramCta: string };
   pricing: { label: string; title: string; tabs: PricingTab[] };
   contact: {
     label: string;
